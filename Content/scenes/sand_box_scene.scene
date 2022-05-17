@@ -1,0 +1,174 @@
+{
+	"ID": "c8b1b60a45876fbc47a1f68aa2531b25",
+	"TypeName": "FlaxEngine.SceneAsset",
+	"EngineBuild": 6229,
+	"Data": [
+		{
+			"ID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"TypeName": "FlaxEngine.Scene",
+			"LightmapSettings": {
+				"IndirectLightingIntensity": 1.0,
+				"GlobalObjectsScale": 1.0,
+				"ChartsPadding": 3,
+				"AtlasSize": 1024,
+				"BounceCount": 1,
+				"CompressLightmaps": true,
+				"UseGeometryWithNoMaterials": true,
+				"Quality": 10
+			}
+		},
+		{
+			"ID": "d9db6a5b4fd70c32c451d1acd2c218bd",
+			"TypeName": "FlaxEngine.DirectionalLight",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"Name": "Sun",
+			"Transform": {
+				"Translation": {
+					"X": 40.0,
+					"Y": 160.0,
+					"Z": 0.0
+				},
+				"Orientation": {
+					"X": 0.3826834559440613,
+					"Y": 0.0,
+					"Z": 0.0,
+					"W": 0.9238795042037964
+				}
+			}
+		},
+		{
+			"ID": "2e04f35344a42ddc8f5c2fb451c67091",
+			"TypeName": "FlaxEngine.Sky",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"Name": "Sky",
+			"Transform": {
+				"Translation": {
+					"X": 40.0,
+					"Y": 150.0,
+					"Z": 0.0
+				}
+			},
+			"Sun": "d9db6a5b4fd70c32c451d1acd2c218bd"
+		},
+		{
+			"ID": "533a3ac8462ec745ff4657bad127ebe9",
+			"TypeName": "FlaxEngine.SkyLight",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"Name": "SkyLight",
+			"Brightness": 2.5,
+			"CustomTexture": "c54410104ff39427bc11e5bc761d66b0"
+		},
+		{
+			"ID": "cf09d9d542325e8d33a3e6816c7fc187",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"Name": "Floor",
+			"Transform": {
+				"Scale": {
+					"X": 4.0,
+					"Y": 0.5,
+					"Z": 4.0
+				}
+			},
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "1771b53343d461faacdf2c8581b1fdbb",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "b545dfa642de4a478a0df68a407f0e06",
+			"TypeName": "FlaxEngine.BoxCollider",
+			"ParentID": "cf09d9d542325e8d33a3e6816c7fc187",
+			"Name": "BoxCollider"
+		},
+		{
+			"ID": "9ae8168d4ce618a4e1e1edb30d20df6b",
+			"TypeName": "FlaxEngine.Camera",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"Name": "Camera",
+			"Transform": {
+				"Translation": {
+					"X": -1.0,
+					"Y": 150.0,
+					"Z": -156.8395538330078
+				},
+				"Orientation": {
+					"X": -0.5140774250030518,
+					"Y": 0.05232885107398033,
+					"Z": 0.031442347913980487,
+					"W": 0.855568528175354
+				}
+			}
+		},
+		{
+			"ID": "4e5fd8274088199005e3859d3c4f8ce1",
+			"TypeName": "MrMynner.Scripts.FirstCamControllerScript",
+			"ParentID": "9ae8168d4ce618a4e1e1edb30d20df6b",
+			"V": {}
+		},
+		{
+			"ID": "d55106704fae9726da36f2858ac07ef8",
+			"TypeName": "MrMynner.Actors.PlayerActor",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"V": {},
+			"Name": "PlayerActor",
+			"Transform": {
+				"Translation": {
+					"X": 71.85189819335938,
+					"Y": 152.18377685546876,
+					"Z": 2.2898406982421877
+				}
+			},
+			"Radius": 34.0,
+			"Height": 102.0
+		},
+		{
+			"ID": "dfc31c8e4c1981046beadd9870b17991",
+			"TypeName": "MrMynner.Scripts.ActorUpdaterScript",
+			"ParentID": "d55106704fae9726da36f2858ac07ef8",
+			"V": {}
+		},
+		{
+			"ID": "a1a436084e2d647744397295c7ca3b7f",
+			"TypeName": "MrMynner.Scripts.PlayerMovementControllerScript",
+			"ParentID": "d55106704fae9726da36f2858ac07ef8",
+			"V": {}
+		},
+		{
+			"ID": "b4cdc7dc405e5a674a499c8fb96efea2",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "d55106704fae9726da36f2858ac07ef8",
+			"Name": "StaticModel",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": -82.35707092285156,
+					"Z": 0.0
+				},
+				"Scale": {
+					"X": 1.4399999380111695,
+					"Y": 1.7000000476837159,
+					"Z": 1.399999976158142
+				}
+			},
+			"Model": "3f82e57744f57c28285150b646ad2198",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		}
+	]
+}
