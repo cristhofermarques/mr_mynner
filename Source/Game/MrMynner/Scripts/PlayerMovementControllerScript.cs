@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Runtime.CompilerServices;
 using FlaxEngine;
 using MrMynner.Actors;
 
@@ -11,6 +10,9 @@ namespace MrMynner.Scripts
 
         [NoSerialize]
         private PlayerActor player;
+
+        [NoSerialize]
+        private bool _isRunning = false;
 
         [Serialize]
         public float forwardSpeed = 250f;
@@ -27,11 +29,16 @@ namespace MrMynner.Scripts
         [Serialize]
         public string strafeAxisRawName = "Horizontal";
 
+        [Serialize][Limit(0f, 1f, 0.001f)]
+        public float inertiaVelDampLerpIntensity = 0.01f;
+
         [Serialize]
         public KeyboardKeys runKey = KeyboardKeys.Shift;
 
-        #endregion
+        [HideInEditor][NoSerialize]
+        public Vector3 inertialVel = Vector3.Zero;
 
+        #endregion
 
         #region Funcs
 
@@ -42,38 +49,57 @@ namespace MrMynner.Scripts
         
         public override void OnUpdate()
         {
-            Vector3 targetMoveVel = Vector3.Zero;
+            if(player.IsGrounded)
+            {   
+                float epsOffset = 0.01f;
+                Vector3 targetMoveVel = Vector3.Zero;
 
-            float forwardAxisRaw = Input.GetAxisRaw(strafeAxisRawName);
-            bool isRunning = Input.GetKey(runKey) && forwardAxisRaw > 0f;
-            float maxTargetMoveSpeed = 0f;
+                float forwardAxisRaw = Input.GetAxisRaw(forwardAxisRawName);
+                float strafeAxisRaw = Input.GetAxisRaw(strafeAxisRawName);
 
-            if(isRunning)
-            {
-                maxTargetMoveSpeed = runSpeed;
-                targetMoveVel += Input.GetAxisRaw(forwardAxisRawName) * Actor.Transform.Forward * runSpeed;
+                bool isRunning = Input.GetKey(runKey) && forwardAxisRaw > 0f;
+                float maxTargetMoveSpeed = strafeSpeed;
+
+                if(forwardAxisRaw < -epsOffset)// backward move
+                {
+                    maxTargetMoveSpeed = strafeSpeed;
+                    targetMoveVel += Actor.Transform.Backward * strafeSpeed;
+                }
+                else if(forwardAxisRaw > epsOffset)// forward move
+                {
+                    _isRunning = Input.GetKey(runKey);
+
+                    if(_isRunning)
+                    {
+                        maxTargetMoveSpeed = runSpeed;
+                        targetMoveVel += Actor.Transform.Forward * runSpeed;
+                    }
+                    else
+                    {
+                        maxTargetMoveSpeed = forwardSpeed;
+                        targetMoveVel += Actor.Transform.Forward * forwardSpeed;
+                    }
+                }
+                
+                targetMoveVel += strafeAxisRaw * Actor.Transform.Right * strafeSpeed;
+
+                float targetMoveVelLen =  targetMoveVel.Length;
+                if(targetMoveVelLen > maxTargetMoveSpeed)
+                {
+                    targetMoveVel *= maxTargetMoveSpeed / targetMoveVelLen;
+                }
+
+                targetMoveVel *= Time.DeltaTime;
+                targetMoveVel.Y = player.moveVel.Y;
+                player.moveVel = inertialVel = targetMoveVel;
             }
             else
             {
-                maxTargetMoveSpeed = forwardSpeed;
-                targetMoveVel += Input.GetAxisRaw(forwardAxisRawName) * Actor.Transform.Forward * (forwardAxisRaw > 0f? forwardSpeed : strafeSpeed);
+                inertialVel.Y = player.moveVel.Y;
+                player.moveVel = inertialVel;
             }
 
-            
-            float strafeAxisRaw = Input.GetAxisRaw(strafeAxisRawName);
-            targetMoveVel += strafeAxisRaw * Actor.Transform.Right * strafeSpeed;
-
-            float moveVelLen = targetMoveVel.Length;
-            if(moveVelLen > maxTargetMoveSpeed)
-            {
-                targetMoveVel *= maxTargetMoveSpeed / moveVelLen;
-            }
-
-            Debug.Log(targetMoveVel.Length);
-
-            targetMoveVel *= Time.DeltaTime;
-
-            player.moveVel = targetMoveVel;            
+            inertialVel = Vector3.Lerp(inertialVel, Vector3.Zero, inertiaVelDampLerpIntensity);
         }
 
         #endregion

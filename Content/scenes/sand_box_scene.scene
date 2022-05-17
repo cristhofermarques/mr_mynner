@@ -98,14 +98,9 @@
 					"X": -1.0,
 					"Y": 150.0,
 					"Z": -156.8395538330078
-				},
-				"Orientation": {
-					"X": -0.5140774250030518,
-					"Y": 0.05232885107398033,
-					"Z": 0.031442347913980487,
-					"W": 0.855568528175354
 				}
-			}
+			},
+			"FOV": 90.0
 		},
 		{
 			"ID": "4e5fd8274088199005e3859d3c4f8ce1",
@@ -114,42 +109,62 @@
 			"V": {}
 		},
 		{
-			"ID": "d55106704fae9726da36f2858ac07ef8",
+			"ID": "97d5877c4d2a21993f58d7b2f8d67707",
 			"TypeName": "MrMynner.Actors.PlayerActor",
 			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
 			"V": {},
 			"Name": "PlayerActor",
 			"Transform": {
 				"Translation": {
-					"X": 71.85189819335938,
-					"Y": 152.18377685546876,
-					"Z": 2.2898406982421877
+					"X": 5.6646270751953129,
+					"Y": 199.9161376953125,
+					"Z": -13.941986083984375
 				}
 			},
-			"Radius": 34.0,
-			"Height": 102.0
+			"Radius": 35.0,
+			"Height": 100.0
 		},
 		{
-			"ID": "dfc31c8e4c1981046beadd9870b17991",
+			"ID": "884dfa5745d4377d8be398a751fae83a",
 			"TypeName": "MrMynner.Scripts.ActorUpdaterScript",
-			"ParentID": "d55106704fae9726da36f2858ac07ef8",
+			"ParentID": "97d5877c4d2a21993f58d7b2f8d67707",
 			"V": {}
 		},
 		{
-			"ID": "a1a436084e2d647744397295c7ca3b7f",
+			"ID": "82ddfa17446b80faa96d4287fbf9ef2e",
+			"TypeName": "MrMynner.Scripts.CharacterGravityScript",
+			"ParentID": "97d5877c4d2a21993f58d7b2f8d67707",
+			"V": {}
+		},
+		{
+			"ID": "be2806834615a9c88e6954ae047ed8ea",
 			"TypeName": "MrMynner.Scripts.PlayerMovementControllerScript",
-			"ParentID": "d55106704fae9726da36f2858ac07ef8",
+			"ParentID": "97d5877c4d2a21993f58d7b2f8d67707",
+			"V": {}
+		},
+		{
+			"ID": "82e7573647281849428a2aad76dc684d",
+			"TypeName": "MrMynner.Scripts.PlayerJumpScript",
+			"ParentID": "97d5877c4d2a21993f58d7b2f8d67707",
+			"V": {
+	"jumpHeight": 100.0
+}
+		},
+		{
+			"ID": "7496f11041388374ecc654988dbf60ff",
+			"TypeName": "MrMynner.Scripts.PlayerCamLinkScript",
+			"ParentID": "97d5877c4d2a21993f58d7b2f8d67707",
 			"V": {}
 		},
 		{
 			"ID": "b4cdc7dc405e5a674a499c8fb96efea2",
 			"TypeName": "FlaxEngine.StaticModel",
-			"ParentID": "d55106704fae9726da36f2858ac07ef8",
+			"ParentID": "97d5877c4d2a21993f58d7b2f8d67707",
 			"Name": "StaticModel",
 			"Transform": {
 				"Translation": {
 					"X": 0.0,
-					"Y": -82.35707092285156,
+					"Y": -85.09135437011719,
 					"Z": 0.0
 				},
 				"Scale": {
@@ -169,6 +184,36 @@
 					}
 				]
 			}
+		},
+		{
+			"ID": "42e8c048418fbc1450e000b4738fb7d6",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"Name": "StaticModel",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 75.22157287597656,
+					"Z": 98.6136245727539
+				}
+			},
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "f6bb4e6646abcfb716949e8b57f73712",
+			"TypeName": "FlaxEngine.BoxCollider",
+			"ParentID": "42e8c048418fbc1450e000b4738fb7d6",
+			"Name": "BoxCollider"
 		}
 	]
 }

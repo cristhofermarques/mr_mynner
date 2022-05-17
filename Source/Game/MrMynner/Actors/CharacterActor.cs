@@ -62,8 +62,9 @@ namespace MrMynner.Actors
         public override void OnBeginPlay()
         {
             base.OnBeginPlay();
+        
             actUpdaterScript = Helper.GetOrAddScriptToActor<ActorUpdaterScript>(this);
-            actUpdaterScript.SetFuncs(null, null, FixedUpdateActor);
+            actUpdaterScript.SetFuncs(null, null, FixedUpdateActor);    
             
             charGravityScript = Helper.GetOrAddScriptToActor<CharacterGravityScript>(this);
         }

@@ -14,15 +14,11 @@ namespace MrMynner.Scripts
         [Serialize]
         public float gravity = 9.8f;
 
-        [HideInEditor]
-        [NoSerialize]
-        public float gravityVelocity = 0f;
-
         [EditorOrder(1)]
         [Limit(0f, 1f)]
         [Serialize]
         public Vector3 axis = Vector3.Up;
-
+        
         #endregion
 
         #region Funcs
@@ -32,14 +28,12 @@ namespace MrMynner.Scripts
             if(Actor is CharacterActor){chr = Actor.As<CharacterActor>();}
         }
         
-        public override void OnUpdate()
+        public override void OnFixedUpdate()
         {
             if(chr == null){return;}
 
-            if(chr.IsGrounded){gravityVelocity = 0f;}
-            else{gravityVelocity -= gravity * Mathf.Pi * Time.DeltaTime;}
-
-            chr.moveVel += axis * gravityVelocity;
+            if(chr.IsGrounded){chr.moveVel.Y = 0f;}
+            else{chr.moveVel.Y -= gravity * Mathf.Pi * Time.DeltaTime;}
         }
 
         #endregion

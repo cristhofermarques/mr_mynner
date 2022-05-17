@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using FlaxEngine;
+using MrMynner.Scripts;
 
 namespace MrMynner.Actors
 {
@@ -45,7 +46,10 @@ namespace MrMynner.Actors
                 cam = Scene.GetOrAddChild<Camera>();
 
             Helper.GetOrAddScriptToActor<MrMynner.Scripts.FirstCamControllerScript>(cam);
+
             Helper.GetOrAddScriptToActor<MrMynner.Scripts.PlayerMovementControllerScript>(this);
+            Helper.GetOrAddScriptToActor<MrMynner.Scripts.PlayerJumpScript>(this);
+            Helper.GetOrAddScriptToActor<MrMynner.Scripts.PlayerCamLinkScript>(this).OrderInParent = ScriptsCount - 1;
         }
 
 
