@@ -55,7 +55,16 @@
 			"TypeName": "FlaxEngine.SkyLight",
 			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
 			"Name": "SkyLight",
-			"Brightness": 2.5,
+			"Transform": {
+				"Translation": {
+					"X": -155.89114379882813,
+					"Y": 152.24069213867188,
+					"Z": 0.0
+				}
+			},
+			"Brightness": 1.0,
+			"BakedProbe": "3fa71c744f40f3f5aab29abe73b3121d",
+			"Mode": 0,
 			"CustomTexture": "c54410104ff39427bc11e5bc761d66b0"
 		},
 		{
@@ -105,6 +114,18 @@
 		{
 			"ID": "4e5fd8274088199005e3859d3c4f8ce1",
 			"TypeName": "MrMynner.Scripts.FirstCamControllerScript",
+			"ParentID": "9ae8168d4ce618a4e1e1edb30d20df6b",
+			"V": {}
+		},
+		{
+			"ID": "f7fb5e944ab25ded004ed28eb4e8373f",
+			"TypeName": "MrMynner.Scripts.AimScript",
+			"ParentID": "9ae8168d4ce618a4e1e1edb30d20df6b",
+			"V": {}
+		},
+		{
+			"ID": "e234863d4ad4d893d862fda100e4b0ad",
+			"TypeName": "MrMynner.Scripts.GrabberScript",
 			"ParentID": "9ae8168d4ce618a4e1e1edb30d20df6b",
 			"V": {}
 		},
@@ -213,6 +234,84 @@
 			"ID": "f6bb4e6646abcfb716949e8b57f73712",
 			"TypeName": "FlaxEngine.BoxCollider",
 			"ParentID": "42e8c048418fbc1450e000b4738fb7d6",
+			"Name": "BoxCollider"
+		},
+		{
+			"ID": "8a4d298d47bc86532a4259b404a0fdf5",
+			"TypeName": "MrMynner.Actors.SlotActor",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"V": {
+	"slotModel": "0cd5f9fd4fd26a10798dceaa9aa934f0"
+},
+			"Name": "SlotActor",
+			"Transform": {
+				"Translation": {
+					"X": -126.02938079833985,
+					"Y": 88.8381118774414,
+					"Z": -45.441162109375
+				}
+			},
+			"IsTrigger": true
+		},
+		{
+			"ID": "0cd5f9fd4fd26a10798dceaa9aa934f0",
+			"TypeName": "FlaxEngine.AnimatedModel",
+			"ParentID": "8a4d298d47bc86532a4259b404a0fdf5",
+			"Name": "AnimatedModel",
+			"Buffer": {
+				"Entries": []
+			}
+		},
+		{
+			"ID": "5ec7289a4a68cbeda4e236876d3879a4",
+			"TypeName": "FlaxEngine.AudioSource",
+			"ParentID": "8a4d298d47bc86532a4259b404a0fdf5",
+			"Name": "AudioSource"
+		},
+		{
+			"ID": "5a2381cc4e0426fd3db5e6ad12032627",
+			"TypeName": "MrMynner.Actors.HardwareActor",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"V": {
+	"config": {
+		"$type": "MrMynner.Actors.HardwareActor+CpuConfig, Game.CSharp",
+		"baseClock": 3.0,
+		"tdp": 70.0,
+		"temperature": 0.0,
+		"temperatureScalar": 1.0
+	}
+},
+			"Name": "HardwareActor",
+			"Transform": {
+				"Translation": {
+					"X": 94.83555603027344,
+					"Y": 256.41094970703127,
+					"Z": -85.29393005371094
+				}
+			},
+			"Mass": 1000.0000610351563
+		},
+		{
+			"ID": "c4ab6d7e42fa336489247dbcaa02d621",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "5a2381cc4e0426fd3db5e6ad12032627",
+			"Name": "StaticModel",
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "f1a259f6492a6df79e9e8f91621409a1",
+			"TypeName": "FlaxEngine.BoxCollider",
+			"ParentID": "5a2381cc4e0426fd3db5e6ad12032627",
 			"Name": "BoxCollider"
 		}
 	]

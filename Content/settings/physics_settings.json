@@ -1,7 +1,7 @@
 {
 	"ID": "7871f0364d398555ccd9e297acdc8983",
 	"TypeName": "FlaxEditor.Content.Settings.PhysicsSettings",
-	"EngineBuild": 6222,
+	"EngineBuild": 6229,
 	"Data": {
 	"DefaultGravity": {
 		"X": 0.0,
@@ -23,7 +23,7 @@
 	"LayerMasks": [
 		4294967295,
 		4294967295,
-		4294967295,
+		4294967291,
 		4294967295,
 		4294967295,
 		4294967295,

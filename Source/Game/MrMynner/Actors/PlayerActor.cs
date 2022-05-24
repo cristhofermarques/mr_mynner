@@ -46,6 +46,8 @@ namespace MrMynner.Actors
                 cam = Scene.GetOrAddChild<Camera>();
 
             Helper.GetOrAddScriptToActor<MrMynner.Scripts.FirstCamControllerScript>(cam);
+            Helper.GetOrAddScriptToActor<MrMynner.Scripts.AimScript>(cam);
+            Helper.GetOrAddScriptToActor<MrMynner.Scripts.GrabberScript>(cam);
 
             Helper.GetOrAddScriptToActor<MrMynner.Scripts.PlayerMovementControllerScript>(this);
             Helper.GetOrAddScriptToActor<MrMynner.Scripts.PlayerJumpScript>(this);

@@ -9,7 +9,7 @@
 	"ResizableWindow": false,
 	"RunInBackground": false,
 	"ForceSingleInstance": false,
-	"OverrideIcon": null,
+	"OverrideIcon": "d514ff9b448e81e1c3429994f84a1bfa",
 	"SupportDX12": false,
 	"SupportDX11": true,
 	"SupportDX10": false,
