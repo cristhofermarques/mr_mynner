@@ -11,11 +11,14 @@ namespace MrMynner.Actors
         [NoSerialize]
         private bool _isFull = false;
 
-        [NoSerialize]
+        [Serialize]
         private HardwareActor _attached = null;
 
         [NoSerialize]
         private AudioSource audioSource = null;
+
+        [EditorDisplay("Slot Actor")][Serialize]
+        public float attachOffset = 0f;
 
         [EditorDisplay("Slot Actor")][Serialize]
         public AnimatedModel slotModel = null;
@@ -28,6 +31,8 @@ namespace MrMynner.Actors
 
         [EditorDisplay("Slot Actor")][Serialize]
         public HardwareActor.HardwareType type;
+
+        
 
         #endregion
 
@@ -91,16 +96,12 @@ namespace MrMynner.Actors
 
         public void Attach(HardwareActor hardware)
         {
-            if(hardware != null && !_isFull && hardware.Type == type && !hardware.locked)
+            if(hardware != null && !_isFull && hardware.Type == type && !hardware.locked && CanHardwareBoxFitInSlotBox(hardware))
             {
-                hardware.EnableGravity = false;
-                hardware.IsKinematic = true;
                 hardware.Parent = this;
-                hardware.Constraints = RigidbodyConstraints.LockRotation;
-                hardware.LinearVelocity = 
-                hardware.AngularVelocity = 
-                hardware.LocalEulerAngles = 
-                hardware.LocalPosition = Vector3.Zero;
+                hardware.SetHardwareToAttachMode();
+                hardware.LocalEulerAngles = Vector3.Zero;
+                hardware.LocalPosition = Transform.Up * attachOffset;
                 _attached = hardware;
                 _isFull = true;
             }
@@ -108,21 +109,55 @@ namespace MrMynner.Actors
 
         public void Deattach()
         {
-            if(_isFull)
+            if(_isFull && _attached != null)
             {
                 _attached.SetParent(Scene, true, true);
-                _attached.EnableGravity = true;
-                _attached.IsKinematic = false;
-                _attached.Constraints = RigidbodyConstraints.None;
-                _attached.LocalEulerAngles = _attached.LocalPosition = Vector3.Zero;
-                _attached.locked = true;
-                _attached.LinearVelocity = 
-                _attached.AngularVelocity = 
-                _attached.LocalEulerAngles = 
-                _attached.LocalPosition = Vector3.Zero;
+                _attached.SetHardwareToFreeMode();
                 _isFull = false;
                 _attached = null;
             }
+        }
+
+        private bool CanHardwareBoxFitInSlotBox(HardwareActor hardware)
+        {
+            Vector3 euler = hardware.EulerAngles;
+            hardware.EulerAngles = Vector3.Zero;
+            BoundingBox hardwareBox = hardware.BoxWithChildren;
+
+            if(hardware.IsAttachable)
+            {
+                hardwareBox = BoundingBox.Empty;
+                StaticModel[] models = hardware.GetChildren<StaticModel>();
+                foreach(StaticModel model in models)
+                {
+                    BoundingBox.Merge(hardwareBox, model.Box);
+                }
+
+                Collider[] colliders = hardware.GetChildren<Collider>();
+                foreach(Collider collider in colliders)
+                {
+                    if(!(collider is SlotActor))
+                    {
+                        BoundingBox.Merge(hardwareBox, collider.Box);
+                    }
+                }
+            }
+
+            Vector3 hardwareBoxSize = hardwareBox.Maximum - hardwareBox.Minimum;
+            hardware.EulerAngles = euler;
+            Vector3 slotBoxSize = BoxWithChildren.Maximum - BoxWithChildren.Minimum;
+
+            return hardwareBoxSize.X <= slotBoxSize.X && hardwareBoxSize.Y <= slotBoxSize.Y && hardwareBoxSize.Z <= slotBoxSize.Z;
+        }
+
+        #endregion
+
+        #region Classes
+
+        public struct SlotKey
+        {
+            public HardwareActor.HardwareType type;
+            public int index;
         }
 
         #endregion

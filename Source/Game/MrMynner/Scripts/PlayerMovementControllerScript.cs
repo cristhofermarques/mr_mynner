@@ -32,6 +32,9 @@ namespace MrMynner.Scripts
         [Serialize][Limit(0f, 1f, 0.001f)]
         public float inertiaVelDampLerpIntensity = 0.01f;
 
+        [Serialize][Limit(0f, 1f, 0.001f)]
+        public float moveVelLerpIntensity = 0.7f;
+
         [Serialize]
         public KeyboardKeys runKey = KeyboardKeys.Shift;
 
@@ -91,12 +94,12 @@ namespace MrMynner.Scripts
 
                 targetMoveVel *= Time.DeltaTime;
                 targetMoveVel.Y = player.moveVel.Y;
-                player.moveVel = inertialVel = targetMoveVel;
+                player.moveVel = inertialVel = Vector3.SmoothStep(player.moveVel, targetMoveVel, moveVelLerpIntensity);;
             }
             else
             {
                 inertialVel.Y = player.moveVel.Y;
-                player.moveVel = inertialVel;
+                player.moveVel = Vector3.SmoothStep(player.moveVel, inertialVel, moveVelLerpIntensity);
             }
 
             inertialVel = Vector3.Lerp(inertialVel, Vector3.Zero, inertiaVelDampLerpIntensity);

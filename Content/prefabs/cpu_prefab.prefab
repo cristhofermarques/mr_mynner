@@ -1,0 +1,87 @@
+{
+	"ID": "e0a6e9aa40a1b97dd54d769cf50c774b",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6229,
+	"Data": [
+	{
+		"ID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"TypeName": "MrMynner.Actors.HardwareActor",
+		"V": {},
+		"Name": "cpu_hardware"
+	},
+	{
+		"ID": "f24106cf4570e7e376509bae74c2e060",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"Name": "base_model",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 0.15000000596046449,
+				"Z": 0.0
+			},
+			"Scale": {
+				"X": 0.03999999910593033,
+				"Y": 0.003000000026077032,
+				"Z": 0.03999999910593033
+			}
+		},
+		"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "9217c84248c343cb5f895f825d328d4f",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "2c1c336a440eb4845076a79953909262",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"Name": "shield_model",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 0.44999998807907107,
+				"Z": 0.0
+			},
+			"Scale": {
+				"X": 0.03500000014901161,
+				"Y": 0.003000000026077032,
+				"Z": 0.03500000014901161
+			}
+		},
+		"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "8b227df24cac217a3677dbaec2e9f6fa",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "3699a9fa464b2e515058e5b4aba2d164",
+		"TypeName": "FlaxEngine.BoxCollider",
+		"ParentID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"Name": "collider",
+		"Center": {
+			"X": 0.0,
+			"Y": 0.30000001192092898,
+			"Z": 0.0
+		},
+		"Size": {
+			"X": 4.0,
+			"Y": 0.6000000238418579,
+			"Z": 4.0
+		}
+	}
+]
+}

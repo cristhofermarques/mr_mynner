@@ -33,7 +33,7 @@ namespace MrMynner.Scripts
             if(chr == null){return;}
 
             if(chr.IsGrounded){chr.moveVel.Y = 0f;}
-            else{chr.moveVel.Y -= gravity * Mathf.Pi * Time.DeltaTime;}
+            else{chr.moveVel.Y -= gravity * 2f * Time.DeltaTime;}
         }
 
         #endregion

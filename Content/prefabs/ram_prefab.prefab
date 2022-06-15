@@ -1,0 +1,61 @@
+{
+	"ID": "e81f945e4e92e672a8263aa5a53d6af0",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6229,
+	"Data": [
+	{
+		"ID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"TypeName": "MrMynner.Actors.HardwareActor",
+		"V": {
+	"_type": 300
+},
+		"Name": "ram_hardware"
+	},
+	{
+		"ID": "f24106cf4570e7e376509bae74c2e060",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"Name": "base_model",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 0.5,
+				"Z": 0.0
+			},
+			"Orientation": {
+				"X": 0.0,
+				"Y": 0.7071068286895752,
+				"Z": 0.0,
+				"W": 0.7071068286895752
+			}
+		},
+		"Model": "90a7882749db6bb6a0fc82a82354d815",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "00000000000000000000000000000000",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "3699a9fa464b2e515058e5b4aba2d164",
+		"TypeName": "FlaxEngine.BoxCollider",
+		"ParentID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"Name": "collider",
+		"Center": {
+			"X": 0.0,
+			"Y": 0.5,
+			"Z": 0.0
+		},
+		"Size": {
+			"X": 0.10000000149011612,
+			"Y": 1.0,
+			"Z": 12.0
+		}
+	}
+]
+}

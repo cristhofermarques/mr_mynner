@@ -1,0 +1,89 @@
+{
+	"ID": "5a8723d241aac55c63e3af8a46f86819",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6229,
+	"Data": [
+	{
+		"ID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"TypeName": "MrMynner.Actors.HardwareActor",
+		"V": {
+	"_type": 100
+},
+		"Name": "gpu_hardware"
+	},
+	{
+		"ID": "f24106cf4570e7e376509bae74c2e060",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"Name": "plate_model",
+		"Transform": {
+			"Translation": {
+				"X": 2.0,
+				"Y": 3.9000000953674318,
+				"Z": -1.600000023841858
+			},
+			"Scale": {
+				"X": 0.17000000178813935,
+				"Y": 0.07000000029802323,
+				"Z": 0.03999999910593033
+			}
+		},
+		"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "9bd7ed5848115bbcd14912b5490b9a5e",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "2c1c336a440eb4845076a79953909262",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"Name": "connect_model",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 0.20000000298023225,
+				"Z": 0.0
+			},
+			"Scale": {
+				"X": 0.10999999940395355,
+				"Y": 0.004000000189989805,
+				"Z": 0.0020000000949949028
+			}
+		},
+		"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "9217c84248c343cb5f895f825d328d4f",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "3699a9fa464b2e515058e5b4aba2d164",
+		"TypeName": "FlaxEngine.BoxCollider",
+		"ParentID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"Name": "collider",
+		"Center": {
+			"X": 0.0,
+			"Y": 3.9000000953674318,
+			"Z": -1.600000023841858
+		},
+		"Size": {
+			"X": 17.0,
+			"Y": 7.0,
+			"Z": 4.0
+		}
+	}
+]
+}

@@ -6,6 +6,13 @@
 		{
 			"ID": "c8b1b60a45876fbc47a1f68aa2531b25",
 			"TypeName": "FlaxEngine.Scene",
+			"Lightmaps": [
+				{
+					"Lightmap0": "fdec212e4658315c8ee1d59a766fcba5",
+					"Lightmap1": "3d464e8b4c8bfb1e2b761ebd8e60f097",
+					"Lightmap2": "19b1939244d85432fd2294a0d7fd6c1e"
+				}
+			],
 			"LightmapSettings": {
 				"IndirectLightingIntensity": 1.0,
 				"GlobalObjectsScale": 1.0,
@@ -34,7 +41,8 @@
 					"Z": 0.0,
 					"W": 0.9238795042037964
 				}
-			}
+			},
+			"Brightness": 5.599999904632568
 		},
 		{
 			"ID": "2e04f35344a42ddc8f5c2fb451c67091",
@@ -74,12 +82,23 @@
 			"Name": "Floor",
 			"Transform": {
 				"Scale": {
-					"X": 4.0,
+					"X": 10.0,
 					"Y": 0.5,
-					"Z": 4.0
+					"Z": 10.0
 				}
 			},
 			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.0029296875,
+					"Y": 0.0029296875
+				},
+				"Size": {
+					"X": 0.1669921875,
+					"Y": 0.1669921875
+				}
+			},
 			"Buffer": {
 				"Entries": [
 					{
@@ -109,7 +128,8 @@
 					"Z": -156.8395538330078
 				}
 			},
-			"FOV": 90.0
+			"FOV": 90.0,
+			"Near": 1.0
 		},
 		{
 			"ID": "4e5fd8274088199005e3859d3c4f8ce1",
@@ -127,7 +147,10 @@
 			"ID": "e234863d4ad4d893d862fda100e4b0ad",
 			"TypeName": "MrMynner.Scripts.GrabberScript",
 			"ParentID": "9ae8168d4ce618a4e1e1edb30d20df6b",
-			"V": {}
+			"V": {
+	"throwForce": 500.0,
+	"minHoldDistance": 20.0
+}
 		},
 		{
 			"ID": "97d5877c4d2a21993f58d7b2f8d67707",
@@ -142,8 +165,9 @@
 					"Z": -13.941986083984375
 				}
 			},
-			"Radius": 35.0,
-			"Height": 100.0
+			"Layer": 1,
+			"Radius": 30.0,
+			"Height": 110.0
 		},
 		{
 			"ID": "884dfa5745d4377d8be398a751fae83a",
@@ -175,12 +199,15 @@
 			"ID": "7496f11041388374ecc654988dbf60ff",
 			"TypeName": "MrMynner.Scripts.PlayerCamLinkScript",
 			"ParentID": "97d5877c4d2a21993f58d7b2f8d67707",
-			"V": {}
+			"V": {
+	"camYPosOffset": -18.0
+}
 		},
 		{
 			"ID": "b4cdc7dc405e5a674a499c8fb96efea2",
 			"TypeName": "FlaxEngine.StaticModel",
 			"ParentID": "97d5877c4d2a21993f58d7b2f8d67707",
+			"IsActive": false,
 			"Name": "StaticModel",
 			"Transform": {
 				"Translation": {
@@ -213,16 +240,32 @@
 			"Name": "StaticModel",
 			"Transform": {
 				"Translation": {
-					"X": 0.0,
-					"Y": 75.22157287597656,
-					"Z": 98.6136245727539
+					"X": -294.6237487792969,
+					"Y": 72.2076416015625,
+					"Z": -8.36624526977539
+				},
+				"Scale": {
+					"X": 1.1200000047683716,
+					"Y": 1.0,
+					"Z": 6.0
 				}
 			},
 			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.0029296875,
+					"Y": 0.1728515625
+				},
+				"Size": {
+					"X": 0.06640625,
+					"Y": 0.06640625
+				}
+			},
 			"Buffer": {
 				"Entries": [
 					{
-						"Material": "00000000000000000000000000000000",
+						"Material": "1771b53343d461faacdf2c8581b1fdbb",
 						"ShadowsMode": 3,
 						"Visible": true,
 						"ReceiveDecals": true
@@ -246,12 +289,17 @@
 			"Name": "SlotActor",
 			"Transform": {
 				"Translation": {
-					"X": -126.02938079833985,
-					"Y": 88.8381118774414,
-					"Z": -45.441162109375
+					"X": -242.52688598632813,
+					"Y": 131.99508666992188,
+					"Z": -296.7493896484375
 				}
 			},
-			"IsTrigger": true
+			"IsTrigger": true,
+			"Size": {
+				"X": 4.0,
+				"Y": 3.0,
+				"Z": 4.0
+			}
 		},
 		{
 			"ID": "0cd5f9fd4fd26a10798dceaa9aa934f0",
@@ -269,34 +317,989 @@
 			"Name": "AudioSource"
 		},
 		{
-			"ID": "5a2381cc4e0426fd3db5e6ad12032627",
-			"TypeName": "MrMynner.Actors.HardwareActor",
+			"ID": "4c056522466247c0d9d6fc9ae2a46eda",
+			"PrefabID": "e0a6e9aa40a1b97dd54d769cf50c774b",
+			"PrefabObjectID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"V": {},
+			"Name": "cpu_prefab 0",
+			"Transform": {
+				"Translation": {
+					"X": -260.0674133300781,
+					"Y": 143.59423828125,
+					"Z": -202.54173278808595
+				}
+			},
+			"Mass": 0.009600000455975533
+		},
+		{
+			"ID": "4c4f93d1467466ac2c9808a94cd72b92",
+			"PrefabID": "e0a6e9aa40a1b97dd54d769cf50c774b",
+			"PrefabObjectID": "f24106cf4570e7e376509bae74c2e060",
+			"ParentID": "4c056522466247c0d9d6fc9ae2a46eda",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.08203125,
+					"Y": 0.205078125
+				},
+				"Size": {
+					"X": 0.0009765625,
+					"Y": 0.0009765625
+				}
+			},
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"ID": "6789209b48b412720c890b961aa5c8f4",
+			"PrefabID": "e0a6e9aa40a1b97dd54d769cf50c774b",
+			"PrefabObjectID": "2c1c336a440eb4845076a79953909262",
+			"ParentID": "4c056522466247c0d9d6fc9ae2a46eda",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.08203125,
+					"Y": 0.21484375
+				},
+				"Size": {
+					"X": 0.0009765625,
+					"Y": 0.0009765625
+				}
+			},
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"ID": "5389233d40f2ea046b9e39bf228cef7e",
+			"PrefabID": "e0a6e9aa40a1b97dd54d769cf50c774b",
+			"PrefabObjectID": "3699a9fa464b2e515058e5b4aba2d164",
+			"ParentID": "4c056522466247c0d9d6fc9ae2a46eda"
+		},
+		{
+			"ID": "c80fbf2d4b95fb776ce01c94d67b14aa",
+			"PrefabID": "dc4d93e54bd3725c6d78ff9a1a86bedc",
+			"PrefabObjectID": "8dac8a19464cce17e160e2a509d7be56",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"V": {},
+			"Name": "case_prefab",
+			"Transform": {
+				"Translation": {
+					"X": -273.42340087890627,
+					"Y": 182.6197967529297,
+					"Z": -249.96615600585938
+				}
+			},
+			"Mass": 6.499999523162842
+		},
+		{
+			"ID": "e589a02844908dc8fb6ad2b7009336f7",
+			"PrefabID": "dc4d93e54bd3725c6d78ff9a1a86bedc",
+			"PrefabObjectID": "8ccecc8a4dbe37b65cfdd8a5dc337cfb",
+			"ParentID": "c80fbf2d4b95fb776ce01c94d67b14aa",
+			"V": {
+	"slots": {
+		"200": "4c4a6b304aec1637f12a39a401482642",
+		"500": "bf1cfb5044e94d926cc4a9a2a845932e",
+		"700": "7aa07bfa4f44ffb1faf99581f416ee06",
+		"701": "7be868884c063f62fd05d69f3d87c329"
+	}
+}
+		},
+		{
+			"ID": "2bcf3d3f45d0ccb5056f3396e6057c68",
+			"PrefabID": "dc4d93e54bd3725c6d78ff9a1a86bedc",
+			"PrefabObjectID": "a59b95e5479b69ae30571ca58f8d55d1",
+			"ParentID": "c80fbf2d4b95fb776ce01c94d67b14aa",
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"ID": "4c4a6b304aec1637f12a39a401482642",
+			"PrefabID": "dc4d93e54bd3725c6d78ff9a1a86bedc",
+			"PrefabObjectID": "af973f2149c989bf3ec2fdb1c1797ec6",
+			"ParentID": "c80fbf2d4b95fb776ce01c94d67b14aa",
+			"V": {
+	"_attached": "1bad9a634f3189eac23f3c9cf0dc7225",
+	"slotModel": "d3c934394149ec64d952b9b4971851a1",
+	"IsFull": true,
+	"Attached": "1bad9a634f3189eac23f3c9cf0dc7225"
+},
+			"IsTrigger": true
+		},
+		{
+			"ID": "d3c934394149ec64d952b9b4971851a1",
+			"TypeName": "FlaxEngine.AnimatedModel",
+			"ParentID": "4c4a6b304aec1637f12a39a401482642",
+			"Name": "AnimatedModel",
+			"Buffer": {
+				"Entries": []
+			}
+		},
+		{
+			"ID": "3cc34058418d5965285a27b416b1e44d",
+			"TypeName": "FlaxEngine.AudioSource",
+			"ParentID": "4c4a6b304aec1637f12a39a401482642",
+			"Name": "AudioSource"
+		},
+		{
+			"ID": "1bad9a634f3189eac23f3c9cf0dc7225",
+			"PrefabID": "4ffc605446140b387d928ab602fadc7f",
+			"PrefabObjectID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+			"ParentID": "4c4a6b304aec1637f12a39a401482642",
+			"V": {},
+			"Name": "psu_prefab",
+			"Mass": 1.2000000476837159,
+			"Constraints": 63,
+			"IsKinematic": true,
+			"EnableGravity": false
+		},
+		{
+			"ID": "f1bbe6e0459a3660d7f3d6b3408f2389",
+			"PrefabID": "4ffc605446140b387d928ab602fadc7f",
+			"PrefabObjectID": "f24106cf4570e7e376509bae74c2e060",
+			"ParentID": "1bad9a634f3189eac23f3c9cf0dc7225",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.08203125,
+					"Y": 0.19921875
+				},
+				"Size": {
+					"X": 0.0029296875,
+					"Y": 0.0029296875
+				}
+			},
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"ID": "8cd3f5cd4d3f3ee8666b5da48384558b",
+			"PrefabID": "4ffc605446140b387d928ab602fadc7f",
+			"PrefabObjectID": "3699a9fa464b2e515058e5b4aba2d164",
+			"ParentID": "1bad9a634f3189eac23f3c9cf0dc7225"
+		},
+		{
+			"ID": "bf1cfb5044e94d926cc4a9a2a845932e",
+			"PrefabID": "dc4d93e54bd3725c6d78ff9a1a86bedc",
+			"PrefabObjectID": "4352a3664a33f741bb63e6aa5bbc965b",
+			"ParentID": "c80fbf2d4b95fb776ce01c94d67b14aa",
+			"V": {
+	"_attached": "da533c1646e61175959463b62a156128",
+	"slotModel": "7f400b3340dab9629277f69bd4f61998",
+	"IsFull": true,
+	"Attached": "da533c1646e61175959463b62a156128"
+},
+			"IsTrigger": true
+		},
+		{
+			"ID": "7f400b3340dab9629277f69bd4f61998",
+			"TypeName": "FlaxEngine.AnimatedModel",
+			"ParentID": "bf1cfb5044e94d926cc4a9a2a845932e",
+			"Name": "AnimatedModel",
+			"Buffer": {
+				"Entries": []
+			}
+		},
+		{
+			"ID": "e22a8ca140ee98263291cc91d10132d5",
+			"TypeName": "FlaxEngine.AudioSource",
+			"ParentID": "bf1cfb5044e94d926cc4a9a2a845932e",
+			"Name": "AudioSource"
+		},
+		{
+			"ID": "da533c1646e61175959463b62a156128",
+			"PrefabID": "6f74531a4128bb8d5a70b0809afc1d13",
+			"PrefabObjectID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+			"ParentID": "bf1cfb5044e94d926cc4a9a2a845932e",
+			"V": {
+	"_type": 500
+},
+			"Name": "mobo_prefab 0",
+			"Mass": 0.15000000596046449,
+			"Constraints": 63,
+			"IsKinematic": true,
+			"EnableGravity": false
+		},
+		{
+			"ID": "5df6336b4e7f1528d208a999a7df8437",
+			"PrefabID": "6f74531a4128bb8d5a70b0809afc1d13",
+			"PrefabObjectID": "fd1acc7e457ba941a7810f96ab1b9776",
+			"ParentID": "da533c1646e61175959463b62a156128",
+			"V": {
+	"slots": {
+		"0": "ae153e34489c7805f403b183cfd16181",
+		"300": "03cbcdf842d94d75643425aff0fc0672",
+		"301": null,
+		"600": "1918b3394a259fe91552398980a7ef69"
+	}
+}
+		},
+		{
+			"ID": "5497eadf4dec06f0c0df909d5b85536f",
+			"PrefabID": "6f74531a4128bb8d5a70b0809afc1d13",
+			"PrefabObjectID": "f24106cf4570e7e376509bae74c2e060",
+			"ParentID": "da533c1646e61175959463b62a156128",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.072265625,
+					"Y": 0.19921875
+				},
+				"Size": {
+					"X": 0.0068359375,
+					"Y": 0.0068359375
+				}
+			},
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"ID": "3cffa2ed4cb2ff429b955ba2d1103d24",
+			"PrefabID": "6f74531a4128bb8d5a70b0809afc1d13",
+			"PrefabObjectID": "3699a9fa464b2e515058e5b4aba2d164",
+			"ParentID": "da533c1646e61175959463b62a156128"
+		},
+		{
+			"ID": "ae153e34489c7805f403b183cfd16181",
+			"PrefabID": "6f74531a4128bb8d5a70b0809afc1d13",
+			"PrefabObjectID": "5c34a4f74b68784abc481bb6e339d323",
+			"ParentID": "da533c1646e61175959463b62a156128",
+			"V": {
+	"_attached": "2af72355463247bcaa78b2b8af75a373",
+	"slotModel": "8f700fb64f0efecf219c3fae9e88d05d",
+	"IsFull": true,
+	"Attached": "2af72355463247bcaa78b2b8af75a373"
+},
+			"IsTrigger": true
+		},
+		{
+			"ID": "30b220ed46e83fd942fcdb8abb06ef7c",
+			"PrefabID": "6f74531a4128bb8d5a70b0809afc1d13",
+			"PrefabObjectID": "fee9eab74921491274da91b1dc6e5315",
+			"ParentID": "ae153e34489c7805f403b183cfd16181",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.072265625,
+					"Y": 0.2197265625
+				},
+				"Size": {
+					"X": 0.0009765625,
+					"Y": 0.0009765625
+				}
+			},
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"ID": "8f700fb64f0efecf219c3fae9e88d05d",
+			"TypeName": "FlaxEngine.AnimatedModel",
+			"ParentID": "ae153e34489c7805f403b183cfd16181",
+			"Name": "AnimatedModel",
+			"Buffer": {
+				"Entries": []
+			}
+		},
+		{
+			"ID": "c4eef2d648cdeb6084ec00be733a0bb9",
+			"TypeName": "FlaxEngine.AudioSource",
+			"ParentID": "ae153e34489c7805f403b183cfd16181",
+			"Name": "AudioSource"
+		},
+		{
+			"ID": "2af72355463247bcaa78b2b8af75a373",
+			"PrefabID": "e0a6e9aa40a1b97dd54d769cf50c774b",
+			"PrefabObjectID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+			"ParentID": "ae153e34489c7805f403b183cfd16181",
+			"V": {},
+			"Name": "cpu_prefab",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 1.0,
+					"Z": 0.0
+				}
+			},
+			"Mass": 0.009600000455975533,
+			"Constraints": 63,
+			"IsKinematic": true,
+			"EnableGravity": false
+		},
+		{
+			"ID": "c36390494a14fc3e071368b800b60f92",
+			"PrefabID": "e0a6e9aa40a1b97dd54d769cf50c774b",
+			"PrefabObjectID": "f24106cf4570e7e376509bae74c2e060",
+			"ParentID": "2af72355463247bcaa78b2b8af75a373",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.076171875,
+					"Y": 0.2197265625
+				},
+				"Size": {
+					"X": 0.0009765625,
+					"Y": 0.0009765625
+				}
+			},
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"ID": "206b91fc400cabe66a0d159a7d1609a7",
+			"PrefabID": "e0a6e9aa40a1b97dd54d769cf50c774b",
+			"PrefabObjectID": "2c1c336a440eb4845076a79953909262",
+			"ParentID": "2af72355463247bcaa78b2b8af75a373",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.080078125,
+					"Y": 0.2197265625
+				},
+				"Size": {
+					"X": 0.0009765625,
+					"Y": 0.0009765625
+				}
+			},
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"ID": "77d7579b4aeb4b0eb6131897c938b46a",
+			"PrefabID": "e0a6e9aa40a1b97dd54d769cf50c774b",
+			"PrefabObjectID": "3699a9fa464b2e515058e5b4aba2d164",
+			"ParentID": "2af72355463247bcaa78b2b8af75a373"
+		},
+		{
+			"ID": "1918b3394a259fe91552398980a7ef69",
+			"PrefabID": "6f74531a4128bb8d5a70b0809afc1d13",
+			"PrefabObjectID": "165de2bf4cc4f80a8adc87ad7a175236",
+			"ParentID": "da533c1646e61175959463b62a156128",
+			"V": {
+	"_attached": "2123819d4e590aaec64a11bed3f08b66",
+	"slotModel": "d7197c5a4d61d808a7ecb38bfc87db33",
+	"IsFull": true,
+	"Attached": "2123819d4e590aaec64a11bed3f08b66"
+},
+			"IsTrigger": true
+		},
+		{
+			"ID": "d7197c5a4d61d808a7ecb38bfc87db33",
+			"TypeName": "FlaxEngine.AnimatedModel",
+			"ParentID": "1918b3394a259fe91552398980a7ef69",
+			"Name": "AnimatedModel",
+			"Buffer": {
+				"Entries": []
+			}
+		},
+		{
+			"ID": "bf81e6fa436a87b90b3ef08cb0eada7a",
+			"TypeName": "FlaxEngine.AudioSource",
+			"ParentID": "1918b3394a259fe91552398980a7ef69",
+			"Name": "AudioSource"
+		},
+		{
+			"ID": "2123819d4e590aaec64a11bed3f08b66",
+			"PrefabID": "78ad94204c1e0addd910fb8d69f2e28c",
+			"PrefabObjectID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+			"ParentID": "1918b3394a259fe91552398980a7ef69",
+			"V": {},
+			"Name": "cooler_prefab",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 0.6000000238418579,
+					"Z": 0.0
+				}
+			},
+			"Mass": 0.012799999676644802,
+			"Constraints": 63,
+			"IsKinematic": true,
+			"EnableGravity": false
+		},
+		{
+			"ID": "f46a1e734dcae0ba1d3c1d91b7582a5b",
+			"PrefabID": "78ad94204c1e0addd910fb8d69f2e28c",
+			"PrefabObjectID": "f24106cf4570e7e376509bae74c2e060",
+			"ParentID": "2123819d4e590aaec64a11bed3f08b66",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.0830078125,
+					"Y": 0.1884765625
+				},
+				"Size": {
+					"X": 0.001953125,
+					"Y": 0.001953125
+				}
+			},
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"ID": "c62c41c743e06949a67d4ca4cdbbdb99",
+			"PrefabID": "78ad94204c1e0addd910fb8d69f2e28c",
+			"PrefabObjectID": "3699a9fa464b2e515058e5b4aba2d164",
+			"ParentID": "2123819d4e590aaec64a11bed3f08b66"
+		},
+		{
+			"ID": "03cbcdf842d94d75643425aff0fc0672",
+			"PrefabID": "6f74531a4128bb8d5a70b0809afc1d13",
+			"PrefabObjectID": "a3c94ff24f526db8768360bc45206278",
+			"ParentID": "da533c1646e61175959463b62a156128",
+			"V": {
+	"_attached": "59c12cff4198e853763974a3a76cd0ab",
+	"slotModel": "b5cb44d7411d39b9c47a54beaec8e22e",
+	"IsFull": true,
+	"Attached": "59c12cff4198e853763974a3a76cd0ab"
+},
+			"IsTrigger": true
+		},
+		{
+			"ID": "f1852e594ca2d84a3a8d38a92b45a81a",
+			"PrefabID": "6f74531a4128bb8d5a70b0809afc1d13",
+			"PrefabObjectID": "3a362a994f61a875ff1fa287c4f70e33",
+			"ParentID": "03cbcdf842d94d75643425aff0fc0672",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.0830078125,
+					"Y": 0.208984375
+				},
+				"Size": {
+					"X": 0.001953125,
+					"Y": 0.001953125
+				}
+			},
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"ID": "b5cb44d7411d39b9c47a54beaec8e22e",
+			"TypeName": "FlaxEngine.AnimatedModel",
+			"ParentID": "03cbcdf842d94d75643425aff0fc0672",
+			"Name": "AnimatedModel",
+			"Buffer": {
+				"Entries": []
+			}
+		},
+		{
+			"ID": "b88f8b4e4b76307d4b4edb9d900e97fd",
+			"TypeName": "FlaxEngine.AudioSource",
+			"ParentID": "03cbcdf842d94d75643425aff0fc0672",
+			"Name": "AudioSource"
+		},
+		{
+			"ID": "59c12cff4198e853763974a3a76cd0ab",
+			"PrefabID": "e81f945e4e92e672a8263aa5a53d6af0",
+			"PrefabObjectID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+			"ParentID": "03cbcdf842d94d75643425aff0fc0672",
+			"V": {},
+			"Name": "ram_prefab",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 0.5,
+					"Z": 0.0
+				}
+			},
+			"Mass": 0.0012000000569969416,
+			"Constraints": 63,
+			"IsKinematic": true,
+			"EnableGravity": false
+		},
+		{
+			"ID": "856bce4f480c8850abe2d4866b902acb",
+			"PrefabID": "e81f945e4e92e672a8263aa5a53d6af0",
+			"PrefabObjectID": "f24106cf4570e7e376509bae74c2e060",
+			"ParentID": "59c12cff4198e853763974a3a76cd0ab",
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"ID": "1e2c4f14464de0e71a6c7ca88cc26640",
+			"PrefabID": "e81f945e4e92e672a8263aa5a53d6af0",
+			"PrefabObjectID": "3699a9fa464b2e515058e5b4aba2d164",
+			"ParentID": "59c12cff4198e853763974a3a76cd0ab"
+		},
+		{
+			"ID": "145e129e4d26829ab2205cae2b18c137",
+			"PrefabID": "6f74531a4128bb8d5a70b0809afc1d13",
+			"PrefabObjectID": "642decaf40108100fe2dc2be897e7f2c",
+			"ParentID": "da533c1646e61175959463b62a156128",
+			"V": {
+	"slotModel": "bd7cd9e24cbc2044a89504a04fa88057"
+},
+			"IsTrigger": true
+		},
+		{
+			"ID": "d0b679824c8453972074b9a836b64ee6",
+			"PrefabID": "6f74531a4128bb8d5a70b0809afc1d13",
+			"PrefabObjectID": "c3ac0da84722ed4cb7fadb9adc73fedb",
+			"ParentID": "145e129e4d26829ab2205cae2b18c137",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.0830078125,
+					"Y": 0.193359375
+				},
+				"Size": {
+					"X": 0.001953125,
+					"Y": 0.001953125
+				}
+			},
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"ID": "bd7cd9e24cbc2044a89504a04fa88057",
+			"TypeName": "FlaxEngine.AnimatedModel",
+			"ParentID": "145e129e4d26829ab2205cae2b18c137",
+			"Name": "AnimatedModel",
+			"Buffer": {
+				"Entries": []
+			}
+		},
+		{
+			"ID": "305bb9ba4dd3108be4ee0e81f0d74e83",
+			"TypeName": "FlaxEngine.AudioSource",
+			"ParentID": "145e129e4d26829ab2205cae2b18c137",
+			"Name": "AudioSource"
+		},
+		{
+			"ID": "0f6ba3664977b08b07865a901fb6aab2",
+			"PrefabID": "e81f945e4e92e672a8263aa5a53d6af0",
+			"PrefabObjectID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+			"ParentID": "145e129e4d26829ab2205cae2b18c137",
+			"V": {},
+			"Name": "ram_prefab 0",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 0.5,
+					"Z": 0.0
+				}
+			},
+			"Mass": 0.0012000000569969416,
+			"Constraints": 63,
+			"IsKinematic": true,
+			"EnableGravity": false
+		},
+		{
+			"ID": "63fdf2f4433de894a5fec59c6f244d43",
+			"PrefabID": "e81f945e4e92e672a8263aa5a53d6af0",
+			"PrefabObjectID": "f24106cf4570e7e376509bae74c2e060",
+			"ParentID": "0f6ba3664977b08b07865a901fb6aab2",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "4e7f98ad46a8a1b24aa4a894fcdf40f0"
+					}
+				]
+			}
+		},
+		{
+			"ID": "6864ef24429caf92cc27d9a2df34bd2f",
+			"PrefabID": "e81f945e4e92e672a8263aa5a53d6af0",
+			"PrefabObjectID": "3699a9fa464b2e515058e5b4aba2d164",
+			"ParentID": "0f6ba3664977b08b07865a901fb6aab2"
+		},
+		{
+			"ID": "b5ea02a04d2acaca422748852f6098d4",
+			"PrefabID": "6f74531a4128bb8d5a70b0809afc1d13",
+			"PrefabObjectID": "48055f3045c3aeb20561ebbec346ef2e",
+			"ParentID": "da533c1646e61175959463b62a156128",
+			"V": {
+	"_attached": "321640bc4293a7b1c3d6ec99d1e6b467",
+	"slotModel": "9a4093994c555ddb56489c87134acd65",
+	"IsFull": true,
+	"Attached": "321640bc4293a7b1c3d6ec99d1e6b467"
+},
+			"IsTrigger": true
+		},
+		{
+			"ID": "ce284fe04cd11a67270067a12fc0b4ae",
+			"PrefabID": "6f74531a4128bb8d5a70b0809afc1d13",
+			"PrefabObjectID": "50fe2d184170d2c97133078757312a98",
+			"ParentID": "b5ea02a04d2acaca422748852f6098d4",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.078125,
+					"Y": 0.208984375
+				},
+				"Size": {
+					"X": 0.001953125,
+					"Y": 0.001953125
+				}
+			},
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"ID": "9a4093994c555ddb56489c87134acd65",
+			"TypeName": "FlaxEngine.AnimatedModel",
+			"ParentID": "b5ea02a04d2acaca422748852f6098d4",
+			"Name": "AnimatedModel",
+			"Buffer": {
+				"Entries": []
+			}
+		},
+		{
+			"ID": "5cdcacfc4e0891024300128214edaf57",
+			"TypeName": "FlaxEngine.AudioSource",
+			"ParentID": "b5ea02a04d2acaca422748852f6098d4",
+			"Name": "AudioSource"
+		},
+		{
+			"ID": "321640bc4293a7b1c3d6ec99d1e6b467",
+			"PrefabID": "5a8723d241aac55c63e3af8a46f86819",
+			"PrefabObjectID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+			"ParentID": "b5ea02a04d2acaca422748852f6098d4",
+			"V": {},
+			"Name": "gpu_prefab",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 0.10000000149011612,
+					"Z": 0.0
+				}
+			},
+			"Mass": 0.47600001096725466,
+			"Constraints": 63,
+			"IsKinematic": true,
+			"EnableGravity": false
+		},
+		{
+			"ID": "f62d157c4569747d7a562a985312e503",
+			"PrefabID": "5a8723d241aac55c63e3af8a46f86819",
+			"PrefabObjectID": "f24106cf4570e7e376509bae74c2e060",
+			"ParentID": "321640bc4293a7b1c3d6ec99d1e6b467",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.072265625,
+					"Y": 0.208984375
+				},
+				"Size": {
+					"X": 0.0029296875,
+					"Y": 0.0029296875
+				}
+			},
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"ID": "556b7cea4bf0e56dccca6ca3652c2503",
+			"PrefabID": "5a8723d241aac55c63e3af8a46f86819",
+			"PrefabObjectID": "2c1c336a440eb4845076a79953909262",
+			"ParentID": "321640bc4293a7b1c3d6ec99d1e6b467",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.072265625,
+					"Y": 0.21484375
+				},
+				"Size": {
+					"X": 0.001953125,
+					"Y": 0.001953125
+				}
+			},
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"ID": "c41e47494b3cd860b5f91eba9641ad13",
+			"PrefabID": "5a8723d241aac55c63e3af8a46f86819",
+			"PrefabObjectID": "3699a9fa464b2e515058e5b4aba2d164",
+			"ParentID": "321640bc4293a7b1c3d6ec99d1e6b467"
+		},
+		{
+			"ID": "7aa07bfa4f44ffb1faf99581f416ee06",
+			"PrefabID": "dc4d93e54bd3725c6d78ff9a1a86bedc",
+			"PrefabObjectID": "efbc30424bad9b5b6344a6a7a0a0e2fd",
+			"ParentID": "c80fbf2d4b95fb776ce01c94d67b14aa",
+			"V": {
+	"_attached": "c7f313e84cbab19466ba00819aa13675",
+	"slotModel": "0ba416f54f2510fa374bd2b7f238c792",
+	"IsFull": true,
+	"Attached": "c7f313e84cbab19466ba00819aa13675"
+},
+			"IsTrigger": true
+		},
+		{
+			"ID": "0ba416f54f2510fa374bd2b7f238c792",
+			"TypeName": "FlaxEngine.AnimatedModel",
+			"ParentID": "7aa07bfa4f44ffb1faf99581f416ee06",
+			"Name": "AnimatedModel",
+			"Buffer": {
+				"Entries": []
+			}
+		},
+		{
+			"ID": "41f8bb6f4c2e8e03af6b669cae9ac28b",
+			"TypeName": "FlaxEngine.AudioSource",
+			"ParentID": "7aa07bfa4f44ffb1faf99581f416ee06",
+			"Name": "AudioSource"
+		},
+		{
+			"ID": "c7f313e84cbab19466ba00819aa13675",
+			"PrefabID": "36ba4b0742790f78f3062d89bf18ce73",
+			"PrefabObjectID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+			"ParentID": "7aa07bfa4f44ffb1faf99581f416ee06",
+			"V": {},
+			"Name": "hdd_prefab",
+			"Mass": 0.12000000476837158,
+			"Constraints": 63,
+			"IsKinematic": true,
+			"EnableGravity": false
+		},
+		{
+			"ID": "8f69590d44735f855b60e2945b9dc934",
+			"PrefabID": "36ba4b0742790f78f3062d89bf18ce73",
+			"PrefabObjectID": "f24106cf4570e7e376509bae74c2e060",
+			"ParentID": "c7f313e84cbab19466ba00819aa13675",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.0771484375,
+					"Y": 0.21484375
+				},
+				"Size": {
+					"X": 0.001953125,
+					"Y": 0.001953125
+				}
+			},
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"ID": "1045553b4cfd1d0fbcf7c69395361ec8",
+			"PrefabID": "36ba4b0742790f78f3062d89bf18ce73",
+			"PrefabObjectID": "3699a9fa464b2e515058e5b4aba2d164",
+			"ParentID": "c7f313e84cbab19466ba00819aa13675"
+		},
+		{
+			"ID": "7be868884c063f62fd05d69f3d87c329",
+			"PrefabID": "dc4d93e54bd3725c6d78ff9a1a86bedc",
+			"PrefabObjectID": "7d5d5f49443bf37c51ed66aa873fbf50",
+			"ParentID": "c80fbf2d4b95fb776ce01c94d67b14aa",
+			"V": {
+	"slotModel": "3b1e3130464d8fc66824f6934137ead0"
+},
+			"IsTrigger": true
+		},
+		{
+			"ID": "3b1e3130464d8fc66824f6934137ead0",
+			"TypeName": "FlaxEngine.AnimatedModel",
+			"ParentID": "7be868884c063f62fd05d69f3d87c329",
+			"Name": "AnimatedModel",
+			"Buffer": {
+				"Entries": []
+			}
+		},
+		{
+			"ID": "7c7f3bb44f64c2249f1b899d7f3c303c",
+			"TypeName": "FlaxEngine.AudioSource",
+			"ParentID": "7be868884c063f62fd05d69f3d87c329",
+			"Name": "AudioSource"
+		},
+		{
+			"ID": "e3c88f974038350c9ee0a6b5f6e0a842",
+			"PrefabID": "dc4d93e54bd3725c6d78ff9a1a86bedc",
+			"PrefabObjectID": "74ac886c409af745a5f2668e4b6aa6d4",
+			"ParentID": "c80fbf2d4b95fb776ce01c94d67b14aa"
+		},
+		{
+			"ID": "9ee36aa048d806276194378134f7f753",
+			"PrefabID": "dc4d93e54bd3725c6d78ff9a1a86bedc",
+			"PrefabObjectID": "fc595e684d5a78cd9541a6b47c479642",
+			"ParentID": "c80fbf2d4b95fb776ce01c94d67b14aa"
+		},
+		{
+			"ID": "63c8aa9a4ef4fc53592883b657229bd5",
+			"PrefabID": "dc4d93e54bd3725c6d78ff9a1a86bedc",
+			"PrefabObjectID": "f263b08441b1589509ba3fb76bb17135",
+			"ParentID": "c80fbf2d4b95fb776ce01c94d67b14aa"
+		},
+		{
+			"ID": "b103a80e4f11c9c5bc6cc19c3e15ad1f",
+			"PrefabID": "dc4d93e54bd3725c6d78ff9a1a86bedc",
+			"PrefabObjectID": "d065188c4f17e91865ebb7b2c1fd28a6",
+			"ParentID": "c80fbf2d4b95fb776ce01c94d67b14aa"
+		},
+		{
+			"ID": "ae515cb14c0c316643480bad812dc583",
+			"PrefabID": "dc4d93e54bd3725c6d78ff9a1a86bedc",
+			"PrefabObjectID": "33c7cf2143872b9d457dfabfab5a8bdd",
+			"ParentID": "c80fbf2d4b95fb776ce01c94d67b14aa"
+		},
+		{
+			"ID": "99651b8d4c6274f14c569caf53f735d4",
+			"PrefabID": "9775474940a6e5c60e19c78c483f261b",
+			"PrefabObjectID": "80c0fe3549543a8cbd22b6b09cf6ddea",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"Name": "Prefab 0",
+			"Transform": {
+				"Translation": {
+					"X": -28.466156005859376,
+					"Y": 100.52491760253906,
+					"Z": -63.85603332519531
+				}
+			}
+		},
+		{
+			"ID": "20ed96df4c5ab1737836aebcd2d44662",
+			"PrefabID": "9775474940a6e5c60e19c78c483f261b",
+			"PrefabObjectID": "fd9f7cf448ae8024266421a480ab1ab4",
+			"ParentID": "99651b8d4c6274f14c569caf53f735d4",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.072265625,
+					"Y": 0.1884765625
+				},
+				"Size": {
+					"X": 0.0078125,
+					"Y": 0.0078125
+				}
+			},
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"ID": "b2dd222b42dcac25c09af8bc459304b6",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "20ed96df4c5ab1737836aebcd2d44662",
+			"Name": "EmptyActor"
+		},
+		{
+			"ID": "2b7daba04d157dd14cb8b3a838aa40e3",
+			"TypeName": "MrMynner.Actors.SlotActor",
 			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
 			"V": {
-	"config": {
-		"$type": "MrMynner.Actors.HardwareActor+CpuConfig, Game.CSharp",
-		"baseClock": 3.0,
-		"tdp": 70.0,
-		"temperature": 0.0,
-		"temperatureScalar": 1.0
-	}
+	"slotModel": "664c3fd44ecdf44dd1bc70b1ead76b7d"
 },
+			"Name": "SlotActor 0",
+			"Transform": {
+				"Translation": {
+					"X": -305.65045166015627,
+					"Y": 187.4982147216797,
+					"Z": 222.8664093017578
+				}
+			},
+			"IsTrigger": true,
+			"Size": {
+				"X": 50.0,
+				"Y": 50.0,
+				"Z": 50.0
+			}
+		},
+		{
+			"ID": "664c3fd44ecdf44dd1bc70b1ead76b7d",
+			"TypeName": "FlaxEngine.AnimatedModel",
+			"ParentID": "2b7daba04d157dd14cb8b3a838aa40e3",
+			"Name": "AnimatedModel",
+			"Buffer": {
+				"Entries": []
+			}
+		},
+		{
+			"ID": "eae9f56c45f3ec2325551397cc09c4d5",
+			"TypeName": "FlaxEngine.AudioSource",
+			"ParentID": "2b7daba04d157dd14cb8b3a838aa40e3",
+			"Name": "AudioSource"
+		},
+		{
+			"ID": "de5803414c7b4f18cfec33b10c5a1802",
+			"TypeName": "MrMynner.Actors.HardwareActor",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"V": {},
 			"Name": "HardwareActor",
 			"Transform": {
 				"Translation": {
-					"X": 94.83555603027344,
-					"Y": 256.41094970703127,
-					"Z": -85.29393005371094
+					"X": -301.69024658203127,
+					"Y": 255.75393676757813,
+					"Z": 216.11508178710938
 				}
 			},
-			"Mass": 1000.0000610351563
+			"Mass": 117.64900207519531
 		},
 		{
-			"ID": "c4ab6d7e42fa336489247dbcaa02d621",
+			"ID": "855f0d7d4c08dc2c941db6827d5977d3",
 			"TypeName": "FlaxEngine.StaticModel",
-			"ParentID": "5a2381cc4e0426fd3db5e6ad12032627",
+			"ParentID": "de5803414c7b4f18cfec33b10c5a1802",
 			"Name": "StaticModel",
+			"Transform": {
+				"Scale": {
+					"X": 0.49000000953674319,
+					"Y": 0.49000000953674319,
+					"Z": 0.49000000953674319
+				}
+			},
 			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.072265625,
+					"Y": 0.1728515625
+				},
+				"Size": {
+					"X": 0.0126953125,
+					"Y": 0.0126953125
+				}
+			},
 			"Buffer": {
 				"Entries": [
 					{
@@ -309,10 +1312,222 @@
 			}
 		},
 		{
-			"ID": "f1a259f6492a6df79e9e8f91621409a1",
+			"ID": "a5b0ce964250c7c1c1e366b2dba65b37",
 			"TypeName": "FlaxEngine.BoxCollider",
-			"ParentID": "5a2381cc4e0426fd3db5e6ad12032627",
-			"Name": "BoxCollider"
+			"ParentID": "de5803414c7b4f18cfec33b10c5a1802",
+			"Name": "BoxCollider",
+			"Size": {
+				"X": 49.0,
+				"Y": 49.0,
+				"Z": 49.0
+			}
+		},
+		{
+			"ID": "8e687bbc4bc17ec75c1893a721e0b78d",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"Name": "flat_ram_model",
+			"Transform": {
+				"Translation": {
+					"X": 312.194091796875,
+					"Y": 180.0,
+					"Z": 80.1746826171875
+				}
+			},
+			"Model": "90a7882749db6bb6a0fc82a82354d815",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "a666a11e49c607af94168e8f81ee2c7e",
+			"TypeName": "MrMynner.Actors.HardwareActor",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"V": {
+	"_type": 800
+},
+			"Name": "HardwareActor 0",
+			"Transform": {
+				"Translation": {
+					"X": -309.3667297363281,
+					"Y": 167.86941528320313,
+					"Z": -63.97871398925781
+				}
+			},
+			"Mass": 71.68000030517578
+		},
+		{
+			"ID": "b3a4a21e4181c2586212c196ca249652",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "a666a11e49c607af94168e8f81ee2c7e",
+			"Name": "gridy_case",
+			"Model": "ca3d9b3d4abbc5ca9886e89ba2436531",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "7a41e4e843c1eec830aa60a1fc180de4",
+			"TypeName": "FlaxEngine.BoxCollider",
+			"ParentID": "a666a11e49c607af94168e8f81ee2c7e",
+			"Name": "BoxCollider",
+			"Size": {
+				"X": 64.0,
+				"Y": 56.0,
+				"Z": 20.0
+			}
+		},
+		{
+			"ID": "5010e800444fa4730aedf7af29aee477",
+			"TypeName": "MrMynner.Actors.CableActor",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"V": {
+	"model": "e14e852e4f4f3b311ff7bc85cf6f13ee",
+	"collider": "01c5309c4701920e9175b194a4ad47dd"
+},
+			"Name": "CableActor",
+			"Transform": {
+				"Translation": {
+					"X": -476.5394287109375,
+					"Y": 0.0,
+					"Z": 0.0
+				}
+			},
+			"Curve": {
+				"Keyframes": [
+					{
+						"Time": 0.0,
+						"Value": {
+							"Translation": {
+								"X": 221.5394744873047,
+								"Y": 222.7113800048828,
+								"Z": 57.012184143066409
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": 46.13722229003906,
+								"Y": -132.59796142578126,
+								"Z": -93.49369049072266
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 42.49690246582031,
+								"Y": -133.37301635742188,
+								"Z": -124.521728515625
+							}
+						}
+					},
+					{
+						"Time": 1.0,
+						"Value": {
+							"Translation": {
+								"X": 264.3527526855469,
+								"Y": 99.66639709472656,
+								"Z": -29.74578857421875
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -0.55908203125,
+								"Y": -10.321853637695313,
+								"Z": -37.741172790527347
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 3.323944091796875,
+								"Y": -9.552970886230469,
+								"Z": -6.7357177734375
+							}
+						}
+					},
+					{
+						"Time": 2.0,
+						"Value": {
+							"Translation": {
+								"X": 265.0472412109375,
+								"Y": 112.48828887939453,
+								"Z": 17.136627197265626
+							}
+						},
+						"TangentIn": {},
+						"TangentOut": {}
+					}
+				]
+			}
+		},
+		{
+			"ID": "e14e852e4f4f3b311ff7bc85cf6f13ee",
+			"TypeName": "FlaxEngine.SplineModel",
+			"ParentID": "5010e800444fa4730aedf7af29aee477",
+			"Name": "SplineModel",
+			"PreTransform": {
+				"Orientation": {
+					"X": 0.7071067690849304,
+					"Y": 0.0,
+					"Z": 0.0,
+					"W": 0.7071067690849304
+				},
+				"Scale": {
+					"X": 0.009999999776482582,
+					"Y": 1.0,
+					"Z": 0.009999999776482582
+				}
+			},
+			"Model": "223aa9894e90973780ab508621517526",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "3692e80f4062b9f43a76c49ab2b87e22",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "01c5309c4701920e9175b194a4ad47dd",
+			"TypeName": "FlaxEngine.SplineCollider",
+			"ParentID": "5010e800444fa4730aedf7af29aee477",
+			"Name": "SplineCollider"
+		},
+		{
+			"ID": "85165a704ca99e7c5bf50c9894c674b4",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"Name": "p_0",
+			"Transform": {
+				"Translation": {
+					"X": -169.77247619628907,
+					"Y": 110.90105438232422,
+					"Z": -68.98016357421875
+				}
+			}
+		},
+		{
+			"ID": "3386b6124f7feea7cc7c68ba9005d9b8",
+			"TypeName": "Game.Test",
+			"ParentID": "85165a704ca99e7c5bf50c9894c674b4",
+			"V": {
+	"spline": "5010e800444fa4730aedf7af29aee477"
+}
 		}
 	]
 }

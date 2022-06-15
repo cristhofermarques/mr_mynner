@@ -1,0 +1,315 @@
+{
+	"ID": "6f74531a4128bb8d5a70b0809afc1d13",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6229,
+	"Data": [
+	{
+		"ID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"TypeName": "MrMynner.Actors.HardwareActor",
+		"V": {
+	"_isAttachable": true,
+	"IsAttachable": true
+},
+		"Name": "mobo_hardware"
+	},
+	{
+		"ID": "fd1acc7e457ba941a7810f96ab1b9776",
+		"TypeName": "MrMynner.Scripts.AttachableHardwareScript",
+		"ParentID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"V": {
+	"slots": {
+		"0": "5c34a4f74b68784abc481bb6e339d323",
+		"300": "a3c94ff24f526db8768360bc45206278",
+		"301": "642decaf40108100fe2dc2be897e7f2c",
+		"600": "165de2bf4cc4f80a8adc87ad7a175236"
+	},
+	"slotsCapacity": {
+		"0": 1,
+		"600": 1,
+		"300": 2,
+		"100": 1
+	}
+}
+	},
+	{
+		"ID": "f24106cf4570e7e376509bae74c2e060",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"Name": "plate_model",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 0.05000000074505806,
+				"Z": 0.0
+			},
+			"Scale": {
+				"X": 0.25,
+				"Y": 0.0020000000949949028,
+				"Z": 0.30000001192092898
+			}
+		},
+		"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "00000000000000000000000000000000",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "3699a9fa464b2e515058e5b4aba2d164",
+		"TypeName": "FlaxEngine.BoxCollider",
+		"ParentID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"Name": "collider",
+		"Center": {
+			"X": 0.0,
+			"Y": 0.10000000149011612,
+			"Z": 0.0
+		},
+		"Size": {
+			"X": 25.0,
+			"Y": 0.20000000298023225,
+			"Z": 30.0
+		}
+	},
+	{
+		"ID": "5c34a4f74b68784abc481bb6e339d323",
+		"TypeName": "MrMynner.Actors.SlotActor",
+		"ParentID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"V": {
+	"attachOffset": 1.0
+},
+		"Name": "cpu_slot_actor",
+		"Transform": {
+			"Translation": {
+				"X": -4.0,
+				"Y": 0.20000000298023225,
+				"Z": 10.0
+			}
+		},
+		"Size": {
+			"X": 4.0,
+			"Y": 2.0,
+			"Z": 4.0
+		}
+	},
+	{
+		"ID": "fee9eab74921491274da91b1dc6e5315",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "5c34a4f74b68784abc481bb6e339d323",
+		"Name": "cpu_slot_model",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 0.5,
+				"Z": 0.0
+			},
+			"Scale": {
+				"X": 0.03999999910593033,
+				"Y": 0.009999999776482582,
+				"Z": 0.03999999910593033
+			}
+		},
+		"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "9bd7ed5848115bbcd14912b5490b9a5e",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "165de2bf4cc4f80a8adc87ad7a175236",
+		"TypeName": "MrMynner.Actors.SlotActor",
+		"ParentID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"V": {
+	"attachOffset": 0.6,
+	"type": 600
+},
+		"Name": "cooler_slot_actor",
+		"Transform": {
+			"Translation": {
+				"X": -4.0,
+				"Y": 1.0021106004714966,
+				"Z": 10.0
+			}
+		},
+		"Center": {
+			"X": 0.0,
+			"Y": 3.0,
+			"Z": 0.0
+		},
+		"Size": {
+			"X": 6.0,
+			"Y": 6.0,
+			"Z": 6.0
+		}
+	},
+	{
+		"ID": "a3c94ff24f526db8768360bc45206278",
+		"TypeName": "MrMynner.Actors.SlotActor",
+		"ParentID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"V": {
+	"attachOffset": 0.5,
+	"type": 300
+},
+		"Name": "ram_slot_actor_0",
+		"Transform": {
+			"Translation": {
+				"X": 3.0,
+				"Y": 0.10000000149011612,
+				"Z": 6.0
+			}
+		},
+		"Size": {
+			"X": 1.0,
+			"Y": 2.0,
+			"Z": 12.0
+		}
+	},
+	{
+		"ID": "3a362a994f61a875ff1fa287c4f70e33",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "a3c94ff24f526db8768360bc45206278",
+		"Name": "ram_slot_model",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 0.5,
+				"Z": 0.0
+			},
+			"Scale": {
+				"X": 0.004999999888241291,
+				"Y": 0.009999999776482582,
+				"Z": 0.11999999731779099
+			}
+		},
+		"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "9bd7ed5848115bbcd14912b5490b9a5e",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "642decaf40108100fe2dc2be897e7f2c",
+		"TypeName": "MrMynner.Actors.SlotActor",
+		"ParentID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"V": {
+	"attachOffset": 0.5,
+	"type": 300
+},
+		"Name": "ram_slot_actor_1",
+		"Transform": {
+			"Translation": {
+				"X": 7.0,
+				"Y": 0.10000000149011612,
+				"Z": 6.0
+			}
+		},
+		"Size": {
+			"X": 1.0,
+			"Y": 2.0,
+			"Z": 12.0
+		}
+	},
+	{
+		"ID": "c3ac0da84722ed4cb7fadb9adc73fedb",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "642decaf40108100fe2dc2be897e7f2c",
+		"Name": "ram_slot_model",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 0.5,
+				"Z": 0.0
+			},
+			"Scale": {
+				"X": 0.004999999888241291,
+				"Y": 0.009999999776482582,
+				"Z": 0.11999999731779099
+			}
+		},
+		"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "9bd7ed5848115bbcd14912b5490b9a5e",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "48055f3045c3aeb20561ebbec346ef2e",
+		"TypeName": "MrMynner.Actors.SlotActor",
+		"ParentID": "cdbf1e1e4fb8c51e5238729df5c45ea9",
+		"V": {
+	"attachOffset": 0.1,
+	"type": 100
+},
+		"Name": "gpu_slot_actor",
+		"Transform": {
+			"Translation": {
+				"X": -4.347798824310303,
+				"Y": 0.10000000149011612,
+				"Z": -4.26580810546875
+			}
+		},
+		"Center": {
+			"X": 0.0,
+			"Y": 0.5,
+			"Z": 0.0
+		},
+		"Size": {
+			"X": 12.0,
+			"Y": 1.0,
+			"Z": 0.5
+		}
+	},
+	{
+		"ID": "50fe2d184170d2c97133078757312a98",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "48055f3045c3aeb20561ebbec346ef2e",
+		"Name": "gpu_slot_model",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 0.5,
+				"Z": 0.0
+			},
+			"Scale": {
+				"X": 0.11999999731779099,
+				"Y": 0.009999999776482582,
+				"Z": 0.004999999888241291
+			}
+		},
+		"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "9bd7ed5848115bbcd14912b5490b9a5e",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	}
+]
+}

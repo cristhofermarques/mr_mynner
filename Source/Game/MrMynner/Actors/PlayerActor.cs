@@ -42,8 +42,10 @@ namespace MrMynner.Actors
         {
             base.OnBeginPlay();
 
-            if(cam == null)
-                cam = Scene.GetOrAddChild<Camera>();
+            Layer = 1;
+
+            if(cam == null){cam = Scene.GetOrAddChild<Camera>();}
+            cam.NearPlane = 1f;
 
             Helper.GetOrAddScriptToActor<MrMynner.Scripts.FirstCamControllerScript>(cam);
             Helper.GetOrAddScriptToActor<MrMynner.Scripts.AimScript>(cam);

@@ -1,0 +1,249 @@
+{
+	"ID": "dc4d93e54bd3725c6d78ff9a1a86bedc",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6229,
+	"Data": [
+	{
+		"ID": "8dac8a19464cce17e160e2a509d7be56",
+		"TypeName": "MrMynner.Actors.HardwareActor",
+		"V": {
+	"_isAttachable": true,
+	"_type": 800,
+	"IsAttachable": true
+},
+		"Name": "case_hardware_actor"
+	},
+	{
+		"ID": "8ccecc8a4dbe37b65cfdd8a5dc337cfb",
+		"TypeName": "MrMynner.Scripts.AttachableHardwareScript",
+		"ParentID": "8dac8a19464cce17e160e2a509d7be56",
+		"V": {
+	"slots": {
+		"200": "af973f2149c989bf3ec2fdb1c1797ec6",
+		"500": "4352a3664a33f741bb63e6aa5bbc965b",
+		"700": "efbc30424bad9b5b6344a6a7a0a0e2fd",
+		"701": "7d5d5f49443bf37c51ed66aa873fbf50"
+	},
+	"slotsCapacity": {
+		"500": 1,
+		"200": 1,
+		"700": 4,
+		"400": 2
+	},
+	"_type": 1,
+	"Type": 1
+}
+	},
+	{
+		"ID": "a59b95e5479b69ae30571ca58f8d55d1",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "8dac8a19464cce17e160e2a509d7be56",
+		"Name": "case_model",
+		"Model": "1bd0ecd34b4f407c2552f0af300b5c72",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "00000000000000000000000000000000",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "af973f2149c989bf3ec2fdb1c1797ec6",
+		"TypeName": "MrMynner.Actors.SlotActor",
+		"ParentID": "8dac8a19464cce17e160e2a509d7be56",
+		"V": {
+	"type": 200
+},
+		"Name": "psu_slot_actor",
+		"Transform": {
+			"Translation": {
+				"X": 24.0,
+				"Y": -24.0,
+				"Z": 0.0
+			}
+		},
+		"Center": {
+			"X": -10.0,
+			"Y": 7.0,
+			"Z": 0.0
+		},
+		"Size": {
+			"X": 20.0,
+			"Y": 14.0,
+			"Z": 18.0
+		}
+	},
+	{
+		"ID": "4352a3664a33f741bb63e6aa5bbc965b",
+		"TypeName": "MrMynner.Actors.SlotActor",
+		"ParentID": "8dac8a19464cce17e160e2a509d7be56",
+		"V": {
+	"type": 500
+},
+		"Name": "mobo_slot_actor",
+		"Transform": {
+			"Translation": {
+				"X": 9.040351867675782,
+				"Y": 6.622478485107422,
+				"Z": 43.44972610473633
+			}
+		},
+		"Center": {
+			"X": 0.0,
+			"Y": 0.0,
+			"Z": 1.0
+		},
+		"Size": {
+			"X": 20.0,
+			"Y": 30.0,
+			"Z": 2.0
+		}
+	},
+	{
+		"ID": "efbc30424bad9b5b6344a6a7a0a0e2fd",
+		"TypeName": "MrMynner.Actors.SlotActor",
+		"ParentID": "8dac8a19464cce17e160e2a509d7be56",
+		"V": {
+	"type": 700
+},
+		"Name": "storage_slot_actor_0",
+		"Transform": {
+			"Translation": {
+				"X": -16.70055389404297,
+				"Y": -24.0,
+				"Z": 0.0
+			}
+		},
+		"Center": {
+			"X": 0.0,
+			"Y": 1.5,
+			"Z": 0.0
+		},
+		"Size": {
+			"X": 12.0,
+			"Y": 3.0,
+			"Z": 8.0
+		}
+	},
+	{
+		"ID": "7d5d5f49443bf37c51ed66aa873fbf50",
+		"TypeName": "MrMynner.Actors.SlotActor",
+		"ParentID": "8dac8a19464cce17e160e2a509d7be56",
+		"V": {
+	"type": 700
+},
+		"Name": "storage_slot_actor_1",
+		"Transform": {
+			"Translation": {
+				"X": -16.70055389404297,
+				"Y": -17.107913970947267,
+				"Z": 0.0
+			}
+		},
+		"Center": {
+			"X": 0.0,
+			"Y": 1.5,
+			"Z": 0.0
+		},
+		"Size": {
+			"X": 12.0,
+			"Y": 3.0,
+			"Z": 8.0
+		}
+	},
+	{
+		"ID": "74ac886c409af745a5f2668e4b6aa6d4",
+		"TypeName": "FlaxEngine.BoxCollider",
+		"ParentID": "8dac8a19464cce17e160e2a509d7be56",
+		"Name": "down_collider",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": -24.5,
+				"Z": 0.0
+			}
+		},
+		"Size": {
+			"X": 50.0,
+			"Y": 1.0,
+			"Z": 20.0
+		}
+	},
+	{
+		"ID": "fc595e684d5a78cd9541a6b47c479642",
+		"TypeName": "FlaxEngine.BoxCollider",
+		"ParentID": "8dac8a19464cce17e160e2a509d7be56",
+		"Name": "up_collider",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 24.5,
+				"Z": 0.0
+			}
+		},
+		"Size": {
+			"X": 50.0,
+			"Y": 1.0,
+			"Z": 20.0
+		}
+	},
+	{
+		"ID": "f263b08441b1589509ba3fb76bb17135",
+		"TypeName": "FlaxEngine.BoxCollider",
+		"ParentID": "8dac8a19464cce17e160e2a509d7be56",
+		"Name": "back_collider",
+		"Transform": {
+			"Translation": {
+				"X": 24.5,
+				"Y": 0.0,
+				"Z": 0.0
+			}
+		},
+		"Size": {
+			"X": 1.0,
+			"Y": 50.0,
+			"Z": 20.0
+		}
+	},
+	{
+		"ID": "d065188c4f17e91865ebb7b2c1fd28a6",
+		"TypeName": "FlaxEngine.BoxCollider",
+		"ParentID": "8dac8a19464cce17e160e2a509d7be56",
+		"Name": "front_collider",
+		"Transform": {
+			"Translation": {
+				"X": -24.5,
+				"Y": 0.0,
+				"Z": 0.0
+			}
+		},
+		"Size": {
+			"X": 1.0,
+			"Y": 50.0,
+			"Z": 20.0
+		}
+	},
+	{
+		"ID": "33c7cf2143872b9d457dfabfab5a8bdd",
+		"TypeName": "FlaxEngine.BoxCollider",
+		"ParentID": "8dac8a19464cce17e160e2a509d7be56",
+		"Name": "left_collider",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 0.0,
+				"Z": -9.5
+			}
+		},
+		"Size": {
+			"X": 50.0,
+			"Y": 50.0,
+			"Z": 1.0
+		}
+	}
+]
+}
