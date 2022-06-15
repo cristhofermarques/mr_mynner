@@ -12,24 +12,21 @@ namespace Game
     public class Test : Script
     {
         public CableActor spline;
-        Vector3 lastPos;
+        Vector3 targetPos;
 
-        public override void OnStart()
-        {
-            lastPos = Actor.Position;
-
-        }
+        public float lerpIntensity = 0.2f;
 
         public override void OnUpdate()
         {
             if(spline == null){return;}
+            targetPos = Vector3.Lerp(targetPos, Actor.Position, lerpIntensity);
 
             if(spline.SplinePointsCount > 2)
             {
-                spline.MovePoint(1, Actor.Position);
+                
+                spline.MovePoint(1, targetPos);
             }            
 
-            lastPos = Actor.Position;
         }
 
 

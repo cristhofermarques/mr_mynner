@@ -68,44 +68,42 @@ namespace MrMynner.Actors
             return distance;
         }
 
-        public void MovePoint(int pointIdx, Vector3 newPos)
+        public void MovePoint(int pointIdx, Vector3 newPointPos)
         {
-            if(pointIdx < 0 || pointIdx >= SplinePointsCount){return;}
+            if(!SplineHasTwoPoints || !IsIndexValid(pointIdx)){return;}
 
-            Vector3 oldPos = GetSplinePoint(pointIdx);
-            newPos = PathSphereCast(oldPos, newPos, 1f, true);
+            Vector3 oldPointPos = GetSplinePoint(pointIdx);
+            Vector3 moveDir = Vector3.Normalize(newPointPos - oldPointPos);
+            float moveDist = Vector3.Distance(oldPointPos, newPointPos);
+        
+            float oldSplineLen = SplineLength;
 
-            Vector3 moveDir = Vector3.Normalize(newPos - oldPos);
-            float moveDist = Vector3.Distance(oldPos, newPos);
-            SetSplinePoint(pointIdx, newPos, true);
-            float newLen = GetSplineLength();
+            float cableRadius = 1f;
 
-            if(newLen > maxCableLength)
+            int backPointIdx = pointIdx - 1;
+            int nextPointIdx = pointIdx + 1;
+
+            if(pointIdx == 0)
             {
-                float fixedDist = maxCableLength * moveDist / newLen;
-                Vector3 pos = moveDir * fixedDist;
-                SetSplinePoint(pointIdx, oldPos, true);
-                Debug.Log(fixedDist + " " +  moveDist);
-                DebugDraw.DrawWireSphere(new BoundingSphere(pos, 1f), Color.Red, 5f, false);
-                
-                float beginTime = GetSplineTime(0);
-                float endTime = GetSplineTime(SplinePointsCount - 1);
-                float timeStep = GetTimeStepUsingRadius(1f);
-
-                while(beginTime < endTime)
-                {
-                    Vector3 point = GetSplinePoint(beginTime);
-                    
-                    Vector3 curPointPos = GetSplinePoint(beginTime);
-                    Vector3 newPointPos = curPointPos + moveDir * moveDist;
-                    Vector3 pointPos = PathSphereCast(curPointPos, newPointPos, 1f);
-
-                    DebugDraw.DrawLine(point, pointPos, Color.Red);
-
-                    beginTime += timeStep;
-                }
+                backPointIdx = pointIdx;
+            }
+            else if(pointIdx == SplinePointsCount - 1)
+            {
+                nextPointIdx = pointIdx;
             }
 
+            Vector3[] oldIntervalPoints = GetSplineIntervalPoints(backPointIdx, nextPointIdx, cableRadius);
+
+            newPointPos = PathSphereCast(oldPointPos, newPointPos, cableRadius);
+            SetSplinePoint(pointIdx, newPointPos);
+            float newSplineLen = SplineLength;
+
+            Vector3[] newIntervalPoints = GetSplineIntervalPoints(backPointIdx, nextPointIdx, cableRadius);
+
+            if(newSplineLen > maxCableLength || CheckIntervalMove(oldIntervalPoints, newIntervalPoints, cableRadius))
+            {
+                SetSplinePoint(pointIdx, oldPointPos);
+            }
         }
 
         public float GetTimeStepUsingRadius(float radius)
@@ -116,7 +114,7 @@ namespace MrMynner.Actors
             float endTime = GetSplineTime(SplinePointsCount - 1);
             float time = endTime - beginTime;
 
-            return radius * time / GetSplineLength();
+            return radius * time / SplineLength;
         }
 
         public bool CheckIntervalFree(int aIdx, int bIdx)
@@ -218,13 +216,13 @@ namespace MrMynner.Actors
             RayCastHit hit;
             if(Physics.SphereCast(origin, radius, dir, out hit, distance, uint.MaxValue, false))
             {
-                return hit.Point;
+                return hit.Point + (dir * -1f) * (radius * 0.5f);
             }
 
             return point;
         }
 
-        public Vector3[] CheckCollisionBeetwenPoints(int aPointIdx, int bPointIdx, float cableRadius, int sampleCount = 100)
+        public Vector3[] GetCollisionPointsBeetwenPoints(int aPointIdx, int bPointIdx, float cableRadius, int sampleCount = 100)
         {
             if(!SplineHasTwoPoints || !IsIndexValid(aPointIdx) || !IsIndexValid(bPointIdx)){return null;}
 
@@ -249,6 +247,30 @@ namespace MrMynner.Actors
             return contactsPoints.ToArray();
         }
 
+        public bool CheckCollisionBeetwenPoints(int aPointIdx, int bPointIdx, float cableRadius, int sampleCount = 100)
+        {
+            if(!SplineHasTwoPoints || !IsIndexValid(aPointIdx) || !IsIndexValid(bPointIdx)){return false;}
+
+            float aTime = GetSplineTime(aPointIdx);
+            float bTime = GetSplineTime(bPointIdx);
+
+            float timeStep = GetTimeStepUsingRadius(cableRadius);
+
+            while(aTime < bTime)
+            {
+                Vector3 pos = GetSplinePoint(aTime);
+
+                if(Physics.CheckSphere(pos, cableRadius, uint.MaxValue, false))
+                {
+                    return true;
+                }
+
+                aTime += timeStep;
+            }
+
+            return false;
+        }
+
         public bool CheckCollisionBeetwenPointsOnMove(int pointIdx, Vector3 newPointPos)
         {
             if(!SplineHasTwoPoints || !IsIndexValid(pointIdx)){return false;}
@@ -260,6 +282,57 @@ namespace MrMynner.Actors
             Vector3 oldPointPos = GetSplinePoint(pointIdx);
             Vector3 moveDir = Vector3.Normalize(newPointPos - oldPointPos);
             float moveDist = Vector3.Distance(oldPointPos, newPointPos);
+
+            return false;
+        }
+
+        public Vector3[] GetSplineIntervalPoints(int aPointIdx, int bPointIdx, float cableRadius)
+        {
+            if(!SplineHasTwoPoints || !IsIndexValid(aPointIdx) || !IsIndexValid(bPointIdx)){return null;}
+
+            float aTime = GetSplineTime(aPointIdx);
+            float bTime = GetSplineTime(bPointIdx);
+
+            float majorTime = Mathf.Max(aTime, bTime);
+            float minorTime = Mathf.Min(aTime, bTime);
+
+            float totalTime = majorTime - minorTime;
+
+            float timeStep = GetTimeStepUsingRadius(cableRadius);
+            int intervalPointCount = Mathf.FloorToInt(totalTime / timeStep);
+
+            Vector3[] points = new Vector3[intervalPointCount];
+
+            for(int timeStepMult = 0; timeStepMult < intervalPointCount; timeStepMult++)
+            {
+                float pointTime = minorTime + timeStepMult * timeStep;
+                Vector3 pointPos = GetSplinePoint(pointTime);
+                points[timeStepMult] = pointPos;
+            }
+
+            return points;
+        }
+    
+        public bool CheckIntervalMove(Vector3[] oldIntervalPoints, Vector3[] newIntervalPoints, float cableRadius)
+        {
+            if(oldIntervalPoints == null || newIntervalPoints == null){return false;}
+
+            int minorLen = Mathf.Min(oldIntervalPoints.Length, newIntervalPoints.Length);
+
+            for(int idx = 0; idx < minorLen; idx++)
+            {
+                Vector3 oldPointPos = oldIntervalPoints[idx];
+                Vector3 newPointPos = newIntervalPoints[idx];
+
+                Vector3 moveDir = Vector3.Normalize(newPointPos - oldPointPos);
+                float moveDist = Vector3.Distance(oldPointPos, newPointPos);
+
+                RayCastHit hit;
+                if(Physics.SphereCast(oldPointPos, cableRadius, moveDir, out hit, moveDist, uint.MaxValue, false))
+                {
+                    if(hit.Distance < moveDist){return true;}
+                }
+            }
 
             return false;
         }
