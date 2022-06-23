@@ -29,6 +29,7 @@ namespace MrMynner.Actors
 
             model = GetOrAddChild<SplineModel>();
             collider = GetOrAddChild<SplineCollider>();
+            collider.IsTrigger = true;
         }
 
         public override void UpdateSpline()
@@ -104,6 +105,56 @@ namespace MrMynner.Actors
             {
                 SetSplinePoint(pointIdx, oldPointPos);
             }
+        }
+
+        public void AddNearPoint(Vector3 pointPos)
+        {
+            float closestTime = GetSplineTimeClosestToPoint(pointPos);
+
+            if(SplinePointsCount < 1 || closestTime <= float.Epsilon || closestTime >= GetSplineTime(SplinePointsCount - 1) - float.Epsilon){return;}
+
+            bool closestPointIdxIsNextOfTime;
+            int closestPointIdx = GetSplineIndexClosestToTime(closestTime, out closestPointIdxIsNextOfTime);
+
+            if(closestPointIdx < 0){return;}
+
+            int addPointIdx = closestPointIdx;
+            float addPointTime = GetSplineTime(closestPointIdx - 1) + (GetSplineTime(closestPointIdx) - GetSplineTime(closestPointIdx - 1)) * 0.5f;
+
+            if(!closestPointIdxIsNextOfTime)
+            {
+                addPointIdx = closestPointIdx + 1;
+                addPointTime = GetSplineTime(closestPointIdx) + (GetSplineTime(closestPointIdx + 1) - GetSplineTime(closestPointIdx)) * 0.5f;
+            }
+
+            InsertSplinePoint(addPointIdx, addPointTime, new Transform(pointPos, Quaternion.Identity));
+        }
+
+        public int GetSplineIndexClosestToTime(float time, out bool isNext)
+        {
+            isNext = false;
+
+            if(SplinePointsCount < 1 || time <= float.Epsilon || time >= GetSplineTime(SplinePointsCount - 1) - float.Epsilon){return -1;}
+
+            Vector3 timePointIdx = GetSplinePoint(SplinePointsCount);
+            float lastIdxPointDist = float.MaxValue;
+            int closestIdxPoint = -1;
+
+            for(int idx = 0; idx < SplinePointsCount; idx++)
+            {
+                Vector3 idxPoint = GetSplinePoint(SplinePointsCount);
+                float dist = Vector3.Distance(timePointIdx, idxPoint);
+                if(dist < lastIdxPointDist)
+                {
+                    float idxPointTime = GetSplineTime(idx);
+                    isNext = idxPointTime > time;
+
+                    closestIdxPoint = idx;
+                    lastIdxPointDist = dist;
+                }
+            }
+
+            return closestIdxPoint;
         }
 
         public float GetTimeStepUsingRadius(float radius)
