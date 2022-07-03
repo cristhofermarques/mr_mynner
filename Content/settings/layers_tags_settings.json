@@ -1,7 +1,7 @@
 {
 	"ID": "bb6fbecf458db0ecffa5e2a5155b2b4f",
 	"TypeName": "FlaxEditor.Content.Settings.LayersAndTagsSettings",
-	"EngineBuild": 6229,
+	"EngineBuild": 6332,
 	"Data": {
 	"Tags": [
 		"player",
@@ -11,7 +11,7 @@
 		"default",
 		"player",
 		"ignore_player",
-		null,
+		"",
 		null,
 		null,
 		null,

@@ -80,6 +80,7 @@
 					"Z": 10.0
 				}
 			},
+			"Layer": 2,
 			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
 			"LightmapIndex": 0,
 			"LightmapArea": {
@@ -107,7 +108,8 @@
 			"ID": "b545dfa642de4a478a0df68a407f0e06",
 			"TypeName": "FlaxEngine.BoxCollider",
 			"ParentID": "cf09d9d542325e8d33a3e6816c7fc187",
-			"Name": "BoxCollider"
+			"Name": "BoxCollider",
+			"Layer": 2
 		},
 		{
 			"ID": "9ae8168d4ce618a4e1e1edb30d20df6b",
@@ -121,8 +123,7 @@
 					"Z": -156.8395538330078
 				}
 			},
-			"FOV": 90.0,
-			"Near": 1.0
+			"FOV": 90.0
 		},
 		{
 			"ID": "4e5fd8274088199005e3859d3c4f8ce1",
@@ -149,7 +150,11 @@
 			"ID": "12de3b394aa0f16f15b79fb82f0f44bb",
 			"TypeName": "Game.Test",
 			"ParentID": "9ae8168d4ce618a4e1e1edb30d20df6b",
-			"V": {}
+			"V": {
+	"dist": 150.0,
+	"safeSubDistOffset": 1.0,
+	"mask": 4
+}
 		},
 		{
 			"ID": "97d5877c4d2a21993f58d7b2f8d67707",
@@ -1360,6 +1365,7 @@
 					"Z": -63.97871398925781
 				}
 			},
+			"StaticFlags": 0,
 			"Mass": 71.68000030517578
 		},
 		{
@@ -1367,6 +1373,7 @@
 			"TypeName": "FlaxEngine.StaticModel",
 			"ParentID": "a666a11e49c607af94168e8f81ee2c7e",
 			"Name": "gridy_case",
+			"StaticFlags": 0,
 			"Model": "ca3d9b3d4abbc5ca9886e89ba2436531",
 			"Buffer": {
 				"Entries": [
@@ -1384,6 +1391,7 @@
 			"TypeName": "FlaxEngine.BoxCollider",
 			"ParentID": "a666a11e49c607af94168e8f81ee2c7e",
 			"Name": "BoxCollider",
+			"StaticFlags": 0,
 			"Size": {
 				"X": 64.0,
 				"Y": 56.0,
@@ -1407,101 +1415,30 @@
 					"Z": 0.0
 				}
 			},
+			"Layer": 2,
 			"Curve": {
 				"Keyframes": [
 					{
 						"Time": 0.0,
 						"Value": {
 							"Translation": {
-								"X": 124.361572265625,
+								"X": 312.9956359863281,
 								"Y": 116.32292175292969,
-								"Z": -312.8483581542969
+								"Z": -374.7158508300781
 							}
 						},
 						"TangentIn": {
 							"Translation": {
-								"X": 113.55410766601563,
-								"Y": 3.5262451171875,
-								"Z": 57.59599304199219
+								"X": -51.369380950927737,
+								"Y": 55.179317474365237,
+								"Z": -33.524993896484378
 							}
 						},
 						"TangentOut": {
 							"Translation": {
-								"X": 64.82858276367188,
-								"Y": 3.5262451171875,
-								"Z": -30.331695556640626
-							}
-						}
-					},
-					{
-						"Time": 0.5,
-						"Value": {
-							"Translation": {
-								"X": 211.52944946289063,
-								"Y": 119.84916687011719,
-								"Z": -351.5651550292969
-							}
-						},
-						"TangentIn": {
-							"Translation": {
-								"X": -22.33929443359375,
-								"Y": 0.0,
-								"Z": 8.385101318359375
-							}
-						},
-						"TangentOut": {
-							"Translation": {
-								"X": 17.3443603515625,
-								"Y": 0.7016372680664063,
-								"Z": -7.7037353515625
-							}
-						}
-					},
-					{
-						"Time": 0.875,
-						"Value": {
-							"Translation": {
-								"X": 282.6494140625,
-								"Y": 119.84916687011719,
-								"Z": -378.2601318359375
-							}
-						},
-						"TangentIn": {
-							"Translation": {
-								"X": -16.61456298828125,
-								"Y": 0.0,
-								"Z": -9.1990966796875
-							}
-						},
-						"TangentOut": {
-							"Translation": {
-								"X": 12.13348388671875,
-								"Y": 0.0,
-								"Z": -4.5543212890625
-							}
-						}
-					},
-					{
-						"Time": 1.0625,
-						"Value": {
-							"Translation": {
-								"X": 328.0021057128906,
-								"Y": 119.84916687011719,
-								"Z": -353.1494140625
-							}
-						},
-						"TangentIn": {
-							"Translation": {
-								"X": -6.140411376953125,
-								"Y": 0.0,
-								"Z": -11.4130859375
-							}
-						},
-						"TangentOut": {
-							"Translation": {
-								"X": 9.5753173828125,
-								"Y": 0.0,
-								"Z": 5.3016357421875
+								"X": 51.369380950927737,
+								"Y": -55.179317474365237,
+								"Z": 33.524993896484378
 							}
 						}
 					},
@@ -1509,47 +1446,47 @@
 						"Time": 1.15625,
 						"Value": {
 							"Translation": {
-								"X": 348.7449951171875,
-								"Y": 119.84916687011719,
-								"Z": -314.5950622558594
+								"X": 372.3914794921875,
+								"Y": 52.52183532714844,
+								"Z": -335.95257568359377
 							}
 						},
 						"TangentIn": {
 							"Translation": {
-								"X": 9.64892578125,
-								"Y": 0.0,
-								"Z": -5.16644287109375
+								"X": -18.76603126525879,
+								"Y": 40.428409576416019,
+								"Z": -114.1295394897461
 							}
 						},
 						"TangentOut": {
 							"Translation": {
-								"X": 6.940185546875,
-								"Y": 0.0,
-								"Z": 12.899566650390625
+								"X": 18.76603126525879,
+								"Y": -40.428409576416019,
+								"Z": 114.1295394897461
 							}
 						}
 					},
 					{
-						"Time": 1.25,
+						"Time": 1.578125,
 						"Value": {
 							"Translation": {
-								"X": 297.09136962890627,
-								"Y": 119.84916687011719,
-								"Z": -286.9375305175781
+								"X": 342.61077880859377,
+								"Y": 52.52183532714844,
+								"Z": -194.60516357421876
 							}
 						},
 						"TangentIn": {
 							"Translation": {
-								"X": 0.80157470703125,
-								"Y": 0.36432647705078127,
-								"Z": -14.621551513671875
+								"X": 70.59129333496094,
+								"Y": -0.0,
+								"Z": -335.04571533203127
 							}
 						},
 						"TangentOut": {
 							"Translation": {
-								"X": -59.175689697265628,
+								"X": -70.59129333496094,
 								"Y": 0.0,
-								"Z": 31.685165405273439
+								"Z": 335.04571533203127
 							}
 						}
 					},
@@ -1557,9 +1494,9 @@
 						"Time": 2.0,
 						"Value": {
 							"Translation": {
-								"X": 265.0472412109375,
+								"X": 272.04107666015627,
 								"Y": 105.28467559814453,
-								"Z": 297.576904296875
+								"Z": -239.60093688964845
 							}
 						},
 						"TangentIn": {},
@@ -1573,6 +1510,7 @@
 			"TypeName": "FlaxEngine.SplineModel",
 			"ParentID": "5010e800444fa4730aedf7af29aee477",
 			"Name": "SplineModel",
+			"Layer": 2,
 			"PreTransform": {
 				"Orientation": {
 					"X": 0.7071067690849304,
@@ -1590,7 +1528,7 @@
 			"Buffer": {
 				"Entries": [
 					{
-						"Material": "00000000000000000000000000000000",
+						"Material": "3692e80f4062b9f43a76c49ab2b87e22",
 						"ShadowsMode": 3,
 						"Visible": true,
 						"ReceiveDecals": true
@@ -1603,7 +1541,117 @@
 			"TypeName": "FlaxEngine.SplineCollider",
 			"ParentID": "5010e800444fa4730aedf7af29aee477",
 			"Name": "SplineCollider",
-			"CollisionData": "d68e8b014e8f7bb2557702a8e0a7b280"
+			"Layer": 2,
+			"CollisionData": "fdf3432d43eaf3420d5ff49d89c1a6a4",
+			"PreTransform": {
+				"Orientation": {
+					"X": -0.7071067690849304,
+					"Y": 0.0,
+					"Z": 0.0,
+					"W": 0.7071067690849304
+				},
+				"Scale": {
+					"X": 0.009999999776482582,
+					"Y": 1.0,
+					"Z": 0.009999999776482582
+				}
+			}
+		},
+		{
+			"ID": "b7ebc6ce4cb4245c6f4cc79507ee8997",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"Name": "StaticModel 0",
+			"Transform": {
+				"Translation": {
+					"X": 283.59356689453127,
+					"Y": 74.63465881347656,
+					"Z": -42.21489715576172
+				}
+			},
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "f48dbfbd401fabcd326e228b9ceca9c4",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"Name": "StaticModel 1",
+			"Transform": {
+				"Translation": {
+					"X": 283.59356689453127,
+					"Y": 74.63465881347656,
+					"Z": 137.4784393310547
+				}
+			},
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "9443c9ed4d6a2d403b7cf9be811919be",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"Name": "StaticModel 2",
+			"Transform": {
+				"Translation": {
+					"X": 283.59356689453127,
+					"Y": 172.3736572265625,
+					"Z": 51.52006530761719
+				}
+			},
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "310f5e1f4be52206f106c8b3f94d3ef0",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "c8b1b60a45876fbc47a1f68aa2531b25",
+			"Name": "StaticModel 3",
+			"Transform": {
+				"Translation": {
+					"X": 373.982666015625,
+					"Y": 72.884033203125,
+					"Z": 51.52006530761719
+				}
+			},
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
 		}
 	]
 }
